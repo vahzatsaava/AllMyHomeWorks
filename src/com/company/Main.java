@@ -33,7 +33,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
         int[] arrayOfNumber = new int[]{4, 1, 5, 6, 7, 3, 2, -1, -2};
 
         System.out.println("Выводим первоначальный массив");
