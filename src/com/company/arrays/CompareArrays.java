@@ -1,4 +1,4 @@
-package com.company;
+package com.company.arrays;
 
 public class CompareArrays {
     private static boolean compareArrays(int[] firstArray, int[] secondArray) {
@@ -9,9 +9,11 @@ public class CompareArrays {
             return false;
         } //не равна длина массива first и second возвращаем false
 
-        for (int i = 0; i < firstArray.length; i++) {    //сравниваем значения массивов
-            if (firstArray[i] != secondArray[i]) {
-            return false;
+        for (int i = 0; i < firstArray.length; i++)//сравниваем значения массивов
+        {
+            if (firstArray[i] != secondArray[i])
+            {
+                return false;
             }
         }
         return true;

@@ -1,15 +1,14 @@
-package com.company;
+package com.company.arrays;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class UserArrayEnter {
 
-    private static int[] printArray(int[] array) {
+    private static void printArray(int[] array) {
         for (int i : array) {
             System.out.println(i);
         }
-        return array;
     }
     private static String arrayToString(int[] array){
         return Arrays.toString(array);
@@ -25,8 +24,7 @@ public class UserArrayEnter {
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
         System.out.println("Введите значение элементов");
-        int max = 10;
-        int min = -10;
+
         int[] userArray = new int[number];
         for (int i = 0; i < userArray.length; i++) {
             int a;

@@ -1,4 +1,4 @@
-package com.company;
+package com.company.arrays;
 
 public class MirrorArray {
     //Определить, является ли массив

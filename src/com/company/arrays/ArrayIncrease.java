@@ -1,10 +1,11 @@
-package com.company;
+package com.company.arrays;
 
 public class ArrayIncrease {
-    private static int[] IncreaseArray(int[] array,int length) {
+    private static int[] increaseArray(int[] array,int length) {
         int[] secondArray = new int[length ];
-        for (int i = 0; i <secondArray.length ; i++) {
-
+        for (int i = 0; i <array.length; i++)
+        {
+            secondArray[i]=array[i];
 
         }
 
@@ -13,7 +14,8 @@ public class ArrayIncrease {
 
     public static void main(String[] args) {
         int[] testArray = new int[]{3, -32, 12, -65, 324, 34, 1, 123, 34};
-        int[] value = IncreaseArray(testArray,20);
+        int x=15;
+        int[] value = increaseArray(testArray,x);
         for (int i:value)
         {
             System.out.println(i);

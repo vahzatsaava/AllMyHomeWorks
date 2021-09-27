@@ -1,12 +1,11 @@
-package com.company;
+package com.company.arrays;
 
 import java.util.Arrays;
 import java.util.Random;
 
 public class RandomArray {
-    private static int[] PrintArrayString(int[] array) {
+    private static void printArrayString(int[] array) {
         System.out.println(Arrays.toString(array));
-        return array;
     }
 
     public static void main(String[] args) {
@@ -27,6 +26,6 @@ public class RandomArray {
                 array[i] = 0;
             }
         }
-        PrintArrayString(array);
+        printArrayString(array);
     }
 }
