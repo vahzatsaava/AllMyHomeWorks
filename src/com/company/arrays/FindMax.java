@@ -11,8 +11,6 @@ public class FindMax {
                 max = i;
         }
 
-
-
         return max;
     }
     public static void main(String[] args) {
