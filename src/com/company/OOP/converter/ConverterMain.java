@@ -17,36 +17,39 @@ public class ConverterMain {
                 System.out.println("2 - ярды");
                 System.out.println("3 - футы");
                 System.out.println("4 - мили");
-                Scanner scanner1 = new Scanner(System.in);
-                int distance = scanner1.nextInt();
+                int distance = scanner.nextInt();
                 switch (distance) {
                     case 1:
                         System.out.println("Введите число метров");
-                        Scanner scannerMeter = new Scanner(System.in);
-                        int distanceMeter = scannerMeter.nextInt();
-                        ConverterWeight converterWeightMeter = new ConverterWeight(distanceMeter);
-                        System.out.println(converterWeightMeter);
+                        int distanceMeter = scanner.nextInt();
+                        ConverterWeight.meter(distanceMeter);
+                        ConverterWeight.metetToFut(distanceMeter);
+                        ConverterWeight.meterToYard(distanceMeter);
+                        ConverterWeight.yardToMills(distanceMeter);
                         break;
                     case 2:
                         System.out.println("Введите число ярдов");
-                        Scanner scannerYard = new Scanner(System.in);
-                        int distanceYards = scannerYard.nextInt();
-                        ConverterWeight converterWeightYards = new ConverterWeight(distanceYards);
-                        System.out.println(converterWeightYards);
+                        int distanceYards = scanner.nextInt();
+                        ConverterWeight.yard(distanceYards);
+                        ConverterWeight.yardToFut(distanceYards);
+                        ConverterWeight.yardToMeter(distanceYards);
+                        ConverterWeight.meterToMills(distanceYards);
                         break;
                     case 3:
                         System.out.println("Введите число футов");
-                        Scanner scannerFut = new Scanner(System.in);
-                        int distanceFut = scannerFut.nextInt();
-                        ConverterWeight converterWeightFut = new ConverterWeight(distanceFut);
-                        System.out.println(converterWeightFut);
+                        int distanceFut = scanner.nextInt();
+                        ConverterWeight.futs(distanceFut);
+                        ConverterWeight.futsToMeter(distanceFut);
+                        ConverterWeight.futsToMills(distanceFut);
+                        ConverterWeight.futsToYard(distanceFut);
                         break;
                     case 4:
                         System.out.println("Введите число миль");
-                        Scanner scannerMills = new Scanner(System.in);
-                        int distanceMills = scannerMills.nextInt();
-                        ConverterWeight converterWeightMills = new ConverterWeight(distanceMills);
-                        System.out.println(converterWeightMills);
+                        int distanceMills = scanner.nextInt();
+                        ConverterWeight.mills(distanceMills);
+                        ConverterWeight.millsToMeter(distanceMills);
+                        ConverterWeight.millsToYard(distanceMills);
+                        ConverterWeight.millsToFut(distanceMills);
                         break;
                     default:
                 }
@@ -57,36 +60,39 @@ public class ConverterMain {
                 System.out.println("2 - граммы");
                 System.out.println("3 - фунт");
                 System.out.println("4 - тонна");
-                Scanner scanner2 = new Scanner(System.in);
-                int weight = scanner2.nextInt();
+                int weight = scanner.nextInt();
                 switch (weight) {
                     case 1:
                         System.out.println("Введите число килограмов");
-                        Scanner scannerKG = new Scanner(System.in);
-                        int distanceKG = scannerKG.nextInt();
-                        ConverterDistance converterDistanceKG = new ConverterDistance(distanceKG);
-                        System.out.println(converterDistanceKG);
+                        int distanceKG = scanner.nextInt();
+                        ConverterDistance.killogram(distanceKG);
+                        ConverterDistance.killousToTonnes(distanceKG);
+                        ConverterDistance.killousToFunts(distanceKG);
+                        ConverterDistance.killousToGramms(distanceKG);
                         break;
                     case 2:
                         System.out.println("Введите число граммов");
-                        Scanner scannerGrams = new Scanner(System.in);
-                        int distanceGrams = scannerGrams.nextInt();
-                        ConverterDistance converterDistanceGrams = new ConverterDistance(distanceGrams);
-                        System.out.println(converterDistanceGrams);
+                        int distanceGrams = scanner.nextInt();
+                        ConverterDistance.grams(distanceGrams);
+                        ConverterDistance.gramsToTonnes(distanceGrams);
+                        ConverterDistance.gramsToKilous(distanceGrams);
+                        ConverterDistance.gramsToFunts(distanceGrams);
                         break;
                     case 3:
                         System.out.println("Введите число фунтов");
-                        Scanner scannerFunts = new Scanner(System.in);
-                        int distanceFunts = scannerFunts.nextInt();
-                        ConverterDistance converterDistanceFunts = new ConverterDistance(distanceFunts);
-                        System.out.println(converterDistanceFunts);
+                        int distanceFunts = scanner.nextInt();
+                        ConverterDistance.funts(distanceFunts);
+                        ConverterDistance.funtsToTonnes(distanceFunts);
+                        ConverterDistance.funtsToKillograms(distanceFunts);
+                        ConverterDistance.funtsToGrams(distanceFunts);
                         break;
                     case 4:
                         System.out.println("Введите число тонн");
-                        Scanner scannerTonns = new Scanner(System.in);
-                        int distanceTonns = scannerTonns.nextInt();
-                        ConverterDistance converterDistanceTonns = new ConverterDistance(distanceTonns);
-                        System.out.println(converterDistanceTonns);
+                        int distanceTonns = scanner.nextInt();
+                        ConverterDistance.tonnes(distanceTonns);
+                        ConverterDistance.tonnesToKillous(distanceTonns);
+                        ConverterDistance.tonnesToFunts(distanceTonns);
+                        ConverterDistance.tonnesToGramms(distanceTonns);
                         break;
                     default:
                 }
@@ -95,11 +101,10 @@ public class ConverterMain {
                 System.out.println("Введен неизвестный параметр!");
 
         }
-
+        scanner.close();
     }
 
     public static void main(String[] args) {
-
         choiseParametrs();
     }
 }

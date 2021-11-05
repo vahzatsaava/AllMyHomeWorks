@@ -37,38 +37,78 @@ public class ConverterWeight {
 
          */    //условие задачи
 
-    private final double meter; //1 миля это 1600 метров
-    private final double fut;   // 1 метр 3.2 фута
-    private final double yard;  //1 метр 1.09 ярдов
-    private final double mills;
+    private double meter; //1 миля это 1600 метров
+    private double fut;   // 1 метр 3.2 фута
+    private double yard;  //1 метр 1.09 ярдов
+    private double mills;
 
-    public ConverterWeight(int meter) {
-        this.meter = meter;
-        this.fut = meter * 3.2;
-        this.yard = meter * 1.09;
-        this.mills = meter * 1600;
+    //конвертер метров
+    public static void meter(double value) {
+        System.out.println(value + " - Meter");
+    }
+    public static void metetToFut(double value) {
+        System.out.println(value * 3.8 + " - Fut");
+    }
+    public static void meterToYard(double value) {
+        System.out.println(value * 1.09 + " - Yards");
     }
 
-    public ConverterWeight(double fut) {
-        this.fut = fut;
-        this.meter =  fut * 0.3;
-        this.mills = fut * 0.000189;
-        this.yard = fut * 0.33;
+    public static void meterToMills(double value) {
+        System.out.println(value * 0.00062 + " - Mills");
     }
 
-    public ConverterWeight(float yard) {
-        this.yard = yard;
-        this.meter = yard * 0.91;
-        this.fut = yard * 3;
-        this.mills = yard * 0.0056;
+    //конвертер ярдов
+    public static void yard(double value) {
+        System.out.println(value + " - Yards");
     }
 
-    public ConverterWeight(long mills) {
-        this.mills = mills;
-        this.meter = mills * 1600;
-        this.fut = mills * 5280;
-        this.yard = mills * 1760;
+    public static void yardToMeter(double value) {
+        System.out.println(value * 0.9 + " - Meter");
     }
+
+    public static void yardToFut(double value) {
+        System.out.println(value * 3 + " - Fut");
+    }
+
+    public static void yardToMills(double value) {
+        System.out.println(value * 0.00056 + " - Mills");
+    }
+
+    // для футов
+    public static void futs(double value) {
+        System.out.println(value + " - Futs");
+    }
+
+    public static void futsToMeter(double value) {
+        System.out.println(value * 0.3 + " - Meter");
+    }
+
+    public static void futsToYard(double value) {
+        System.out.println(value * 0.33 + " -Yard");
+    }
+
+    public static void futsToMills(double value) {
+        System.out.println(value * 0.000018 + " - Mills");
+    }
+
+    //для миль
+    public static void mills(double value) {
+        System.out.println(value + " - Mills");
+    }
+
+    public static void millsToMeter(double value) {
+        System.out.println(value * 1609 + " - Meter");
+    }
+
+    public static void millsToYard(double value) {
+        System.out.println(value * 1760 + " - Yard");
+    }
+
+    public static void millsToFut(double value) {
+        System.out.println(value * 5280 + " - Fut");
+    }
+
+    //переделать сделать методы отдельные
 
 
     @Override

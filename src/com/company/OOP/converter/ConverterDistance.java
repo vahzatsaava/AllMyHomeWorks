@@ -1,42 +1,82 @@
 package com.company.OOP.converter;
 
 public class ConverterDistance {
-    private final double kg;
-    private final double tonnes;
-    private final double gramms;
-    private final double funts;
+    private double kg;
+    private double tonnes;
+    private double gramms;
+    private double funts;
 
-    public ConverterDistance(int kg) {
-        this.kg = kg;
-        this.gramms = kg * 1000;
-        this.funts = kg * 2.2;
-        this.tonnes = kg * 0.001;
+    //Kg
+    public static void killogram(double value) {
+        System.out.println(value + " - Killograms");
     }
 
-    public ConverterDistance(double gramms) {
-        this.gramms = gramms;
-        this.kg = gramms * 0.01;
-        this.funts = gramms * 0.002;
-        this.tonnes = gramms * 0.0003;
+    public static void killousToTonnes(double value) {
+        System.out.println(value * 0.01 + " - Tonnes");
     }
 
-    public ConverterDistance(float funts) {
-        this.funts = funts;
-        this.kg = funts * 0.45;
-        this.gramms = funts * 453;
-        this.tonnes = funts * 0.0004;
+    public static void killousToGramms(double value) {
+        System.out.println(value * 1000 + " - Gramms");
     }
 
-    public ConverterDistance(long tonnes) {
-        this.tonnes = tonnes;
-        this.kg = tonnes * 1000;
-        this.gramms = tonnes * 100000;
-        this.funts = tonnes * 2204;
+    public static void killousToFunts(double value) {
+        System.out.println(value * 2.204 + " - Funts");
     }
+
+    //Tonnnes
+    public static void tonnes(double value) {
+        System.out.println(value + " - Tonnes");
+    }
+
+    public static void tonnesToKillous(double value) {
+        System.out.println(value * 1000 + " - Killogrammes");
+    }
+
+    public static void tonnesToGramms(double value) {
+        System.out.println(value * 1000000 + " - Gramms");
+    }
+
+    public static void tonnesToFunts(double value) {
+        System.out.println(value * 2204 + " - Funts");
+    }
+
+    //Gramms
+    public static void grams(double value) {
+        System.out.println(value + " - Grams");
+    }
+
+    public static void gramsToTonnes(double value) {
+        System.out.println(value * 0.000001 + " - Tonnes");
+    }
+
+    public static void gramsToKilous(double value) {
+        System.out.println(value * 0.001 + " - Killograms");
+    }
+
+    public static void gramsToFunts(double value) {
+        System.out.println(value * 0.0024 + " - Funts");
+    }
+    //Funts
+    public static void funts(double value) {
+        System.out.println(value + " - Funts");
+    }
+
+    public static void funtsToTonnes(double value) {
+        System.out.println(value * 0.0004+ " - Tonnes");
+    }
+
+    public static void funtsToKillograms(double value) {
+        System.out.println(value * 0.453+ " - Killograms");
+    }
+
+    public static void funtsToGrams(double value) {
+        System.out.println(value * 453 + " - Grams");
+    }
+
 
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Киллограммы: " + kg + "\n" + "Граммы: " + gramms + "\n" + "Фунты: " + funts + "\n" + "Тонны: " + tonnes;
     }
 
