@@ -3,27 +3,16 @@ package com.company.calculator;
 import java.util.Scanner;
 
 public class ArabicNumbers {
-    private int firstNumber;
-    private int secondNumber;
 
-    ArabicNumbers(int firstNumber, int secondNumber) {
-        this.firstNumber = firstNumber;
-        this.secondNumber = secondNumber;
-    }
-
-    public int getFirstnumber() {
-        return firstNumber;
-    }
-
-    public int getSecondNumber() {
-        return secondNumber;
-    }
-
-    int returnResult() {
+    public static void outputResultOfArabicNumerals() {
         String result = "";
         int resultValue = 0;
-        System.out.println("Введите необходимую операцию");
         Scanner scannerChars = new Scanner(System.in);
+        System.out.println("Введите первое значение!");
+        int firstNumber = scannerChars.nextInt();
+        System.out.println("Введите второе значение!");
+        int secondNumber = scannerChars.nextInt();
+        System.out.println("Введите необходимую операцию");
         result = scannerChars.next();
         switch (result) {
             case "-":
@@ -46,7 +35,13 @@ public class ArabicNumbers {
             default:
 
         }
-        return resultValue;
+        scannerChars.close();
+        System.out.println(resultValue);
+    }
+
+    public static void main(String[] args) {
+
+        outputResultOfArabicNumerals();
     }
 
 

@@ -10,6 +10,7 @@ public class staticDZ {
 //    sout(b2.getId()); // 2
 //}
     public static void main(String[] args) {
+
         Books books = new Books();
         Books books1 = new Books();
         Books books2 = new Books();
@@ -19,10 +20,6 @@ public class staticDZ {
         System.out.println(books2.getId());
         System.out.println(books3.getId());
         System.out.println(books.getId());
-
-
-
-
 
     }
 }

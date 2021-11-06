@@ -1,8 +1,6 @@
 package com.company.OOP.dzOOP.staticFirstDZ;
 
-import java.net.IDN;
-
-class Books {
+public class Books {
     public int ID;
     public static int booksCount;
 

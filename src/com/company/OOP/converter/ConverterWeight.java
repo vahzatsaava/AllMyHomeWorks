@@ -41,7 +41,6 @@ public class ConverterWeight {
     private double fut;   // 1 метр 3.2 фута
     private double yard;  //1 метр 1.09 ярдов
     private double mills;
-
     //конвертер метров
     public static void meter(double value) {
         System.out.println(value + " - Meter");
@@ -109,7 +108,6 @@ public class ConverterWeight {
     }
 
     //переделать сделать методы отдельные
-
 
     @Override
     public String toString() {

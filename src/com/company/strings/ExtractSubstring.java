@@ -17,11 +17,13 @@ public class ExtractSubstring {
             result = true;
         } else if (stringSub.length() > stringMain.length()) {
             result = false;
-        }
 
+        }
         for (int i = 0; i < stringMain.length(); i++) {
-            if (stringMain.charAt(i)!=stringSub.charAt(i)){ // не пойму как сравнить тут
+            if (stringMain.contains(stringSub)){ // не пойму как сравнить тут
                 // значения ,если они разной длины ,надо ли использовать массив
+                result = true;
+            }else {
                 result = false;
             }
         }

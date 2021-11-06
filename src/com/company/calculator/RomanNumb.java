@@ -1,13 +1,16 @@
 package com.company.calculator;
 
+import java.util.Scanner;
+
 public class RomanNumb {
-    public static String IntegerToRomanNumeral(int input) {
+    public static String doIntegerToRomanNumeral(int input) {
         if (input < 1 || input > 3999)
-            return "Invalid Roman Number Value";
+            return "Несоответствие значению римских цифр";
         String s = "";
         while (input >= 1000) {
             s += "M";
-            input -= 1000;        }
+            input -= 1000;
+        }
         while (input >= 900) {
             s += "CM";
             input -= 900;
@@ -59,9 +62,45 @@ public class RomanNumb {
         return s;
     }
 
-    public static void main(String[] args) {
-        String s = IntegerToRomanNumeral(8);
-        System.out.println(s);
+    public static int doOperationWithNumbers(){
+        int result = 0;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите первое число");
+        int firstNumber = scanner.nextInt();
+        System.out.println("Введите второе число");
+        int secondnumber = scanner.nextInt();
+        String operation = "";
+        System.out.println("Введите необходимую операцию");
+        operation = scanner.next();
+        switch (operation){
+            case "-":
+                result = firstNumber - secondnumber;
+                break;
+            case "+":
+                result = firstNumber + secondnumber;
+                break;
+            case "*":
+                result = firstNumber * secondnumber;
+                break;
+            case "/":
+                try {
+                    result = firstNumber / secondnumber;
+                }
+                catch (ArithmeticException e){
+                    System.out.println("На ноль делить нельзя!");
+                }
+                break;
+            default:
+                System.out.println("Введите необходимую операцию!");
 
+        }
+        scanner.close();
+
+        return result;
     }
+    public static void outputResultOfRomanNumbers(){
+        String number = doIntegerToRomanNumeral(doOperationWithNumbers());
+        System.out.println(number);
+    }
+
 }

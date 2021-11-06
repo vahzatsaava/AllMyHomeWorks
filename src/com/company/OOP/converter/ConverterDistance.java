@@ -5,7 +5,6 @@ public class ConverterDistance {
     private double tonnes;
     private double gramms;
     private double funts;
-
     //Kg
     public static void killogram(double value) {
         System.out.println(value + " - Killograms");
@@ -72,7 +71,6 @@ public class ConverterDistance {
     public static void funtsToGrams(double value) {
         System.out.println(value * 453 + " - Grams");
     }
-
 
 
     @Override
