@@ -3,9 +3,7 @@ package com.company.calculator;
 import java.util.Scanner;
 
 public class RomanOrArabic {
-
     public void useTheNumbers() {
-
         System.out.println("Выберите какими данными будете пользоваться для подсчета.");
         System.out.println("1 - Римские цифры ");
         System.out.println("2 - Арабские");

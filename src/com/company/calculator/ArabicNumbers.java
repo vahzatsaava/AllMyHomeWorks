@@ -3,8 +3,8 @@ package com.company.calculator;
 import java.util.Scanner;
 
 public class ArabicNumbers {
-
     public static void outputResultOfArabicNumerals() {
+
         String result = "";
         int resultValue = 0;
         Scanner scannerChars = new Scanner(System.in);
@@ -16,7 +16,7 @@ public class ArabicNumbers {
         result = scannerChars.next();
         switch (result) {
             case "-":
-                    resultValue = firstNumber - secondNumber;
+                resultValue = firstNumber - secondNumber;
                 break;
             case "+":
                 resultValue = firstNumber + secondNumber;
