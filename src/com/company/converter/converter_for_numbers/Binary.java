@@ -26,7 +26,7 @@ public class Binary {
         return true;
     }
 
-    public static void parseBinary(int valueTen) {
+    public static Binary parseBinary(int valueTen) {
         int result = 0;
         String concat = "";
         for (int i = valueTen; i > 0; i /= 2) {
@@ -34,7 +34,8 @@ public class Binary {
             concat += result;
             valueTen = valueTen / 2;
         }
-        System.out.println(reverseString(concat));
+        concat = reverseString(concat);
+        return new Binary(concat);
     }
 
     private static String reverseString(String name) {

@@ -4,8 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Binary binary = new Binary("000010");
         System.out.println(binary);
-        Binary.parseBinary(20);
-
-
+        Binary binary1 = Binary.parseBinary(20);
+        System.out.println(binary1);
     }
 }
