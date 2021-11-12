@@ -4,6 +4,8 @@ package com.company.converter.converter_for_numbers;
 // если не проходоми - 0
 //Отдельный метод который принимает 10 -чные цифры и выводит 2-чную систему
 //ParseInt(); подумать что будет возвращать метод parseBinary
+
+//временная сложность алгоритмов почитать
 public class Binary {
 
     private String binary = "";
@@ -27,24 +29,38 @@ public class Binary {
     }
 
     public static Binary parseBinary(int valueTen) {
-        int result = 0;
-        String concat = "";
+        StringBuilder stringBuilder = new StringBuilder();
+        while (valueTen > 0) {
+            int result = valueTen % 2;
+            stringBuilder.insert(0,result);
+            valueTen = valueTen / 2;
+        }
+        /*
         for (int i = valueTen; i > 0; i /= 2) {
             result = valueTen % 2;
             concat += result;
             valueTen = valueTen / 2;
         }
-        concat = reverseString(concat);
-        return new Binary(concat);
+
+         */
+       // String reversed = reverseString(stringBuilder.toString());
+        return new Binary(stringBuilder.toString());
     }
 
-    private static String reverseString(String name) {
-        String build = "";
-        for (int i = name.length() - 1; i >= 0; i--) {
-            build += name.charAt(i);
+    public static int parseDecimal(Binary binary){
+        final double binValue = 2;
+        String bin = binary.toString();
+        double res = 0;
+        //преобразовать символ в int
+        for (int i = 0; i < bin.length(); i++) {
+             double j = bin.length() - i - 1;
+             double results =  (Integer.parseInt(bin.charAt(i) + "" ) * Math.pow(binValue, j)) ;
+             res += results;
+
         }
-        return build;
+        return (int)res;
     }
+
 
     @Override
     public String toString() {
