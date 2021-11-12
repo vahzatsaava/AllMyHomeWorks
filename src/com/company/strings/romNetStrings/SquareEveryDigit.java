@@ -1,10 +1,11 @@
 package com.company.strings.romNetStrings;
 
+import java.util.Arrays;
+
 public class SquareEveryDigit {
     //Изограмма - это слово, в котором нет повторяющихся букв, последовательных или непоследовательных
 
     public static boolean isIsogram(String str) {
-
         /*
         char[] chAr = str.toUpperCase().toCharArray();
         for (int i = 0; i < chAr.length; i++) {
@@ -21,25 +22,23 @@ public class SquareEveryDigit {
     }
 
 
-
     public static boolean compSame(int[] firstVal, int[] multip) {
-        boolean isFalse = false;
+
+        int count = 0;
         for (int i = 0; i < firstVal.length; i++) {
             firstVal[i] = firstVal[i] * firstVal[i];
         }
         for (int i = 0; i < firstVal.length; i++) {
-            int value = firstVal[i];
-            if (value == multip[i]){
-
-                isFalse = true;
-
+            for (int j = 0; j < multip.length; j++) {
+                if (firstVal[i] == multip[j]) {
+                    count++;
+                }
             }
-            else {
-                isFalse = false;
+            if (count == firstVal.length) {
+                return true;
             }
         }
-
-        return isFalse;
+        return false;
     }
 
 
@@ -49,9 +48,9 @@ public class SquareEveryDigit {
         System.out.println(res);
 
          */
-        int[] a = new int[]{3, 2, 4, 6, 5};
-        int[] b = new int[]{9, 4, 16, 36, 25, 45, 0};
-        System.out.println(compSame(a,b));
+        int[] a = new int[]{1, 2, 3};
+        int[] b = new int[]{6, 7, 8, 4, 9, 1};
+        System.out.println(compSame(a, b));
 //каждый элемент массива а и проверяю его в массиве б
 //Элемент массива инт
         // прочитать сложность алгоритма
