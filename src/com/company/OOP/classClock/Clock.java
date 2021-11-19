@@ -56,15 +56,7 @@ public class Clock {
         return isSimilar;
     }
 
-    public boolean testClocks(Clock clockSumm, Clock clockEnter) {
-        boolean isSimilar;
-        if (clockSumm.hours == clockEnter.hours && clockSumm.minutes == clockEnter.minutes) {
-            isSimilar = true;
-        } else {
-            isSimilar = false;
-        }
-        return isSimilar;
-    }
+
 
     public Clock summClocck(Clock clock1, Clock clock2) {
         int minutes = clock1.minutes + clock2.minutes;

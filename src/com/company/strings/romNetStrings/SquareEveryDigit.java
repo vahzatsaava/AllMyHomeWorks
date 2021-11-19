@@ -27,8 +27,6 @@ public class SquareEveryDigit {
         int count = 0;
         for (int i = 0; i < firstVal.length; i++) {
             firstVal[i] = firstVal[i] * firstVal[i];
-        }
-        for (int i = 0; i < firstVal.length; i++) {
             for (int j = 0; j < multip.length; j++) {
                 if (firstVal[i] == multip[j]) {
                     count++;
@@ -49,10 +47,10 @@ public class SquareEveryDigit {
 
          */
         int[] a = new int[]{1, 2, 3};
-        int[] b = new int[]{6, 7, 8, 4, 9, 1};
+        int[] b = new int[]{6, 7, 8, 4, 9, 1,4};
         System.out.println(compSame(a, b));
-//каждый элемент массива а и проверяю его в массиве б
-//Элемент массива инт
+       //каждый элемент массива а и проверяю его в массиве б
+       //Элемент массива инт
         // прочитать сложность алгоритма
         // из 10 в 16 чную преобразовать
         // метод для нахождения элементов в массиве

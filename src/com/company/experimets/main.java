@@ -1,5 +1,13 @@
 package com.company.experimets;
 
+import com.company.converter.converter_for_numbers.Binary;
+
+import java.net.ConnectException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLDataException;
+import java.sql.SQLException;
+
 public class main {
     public static int changeValue(int number) {
         return number + 1;
@@ -22,11 +30,38 @@ public class main {
         11001
         1*2^4 + 1*2^3 + 0*2^2 + 0*2^1 + 1*2^0
         result = 25;- десятичное число
+
+
+         переводим в 16 -чную сис-му;
+         30 - число                             40 число                    50 число                    число 65                  число 85
+         30 / 16 = 1 остаток - 14         40 / 16 = 2 остаток - 8        50 / 16 = 3 остаток - 2       65 / 16 = 4 остаток 1     85 / 16 = 5 остаток 5
+         1 / 16   = 0  остаток - 1           2 / 16 = 0 остаток -2         3 / 16 = 0 остаток -3         4 / 16 = 0  остаток 4      5/ 16 = 0  остаток 5
          */
     }
 
 
     public static void main(String[] args) {
+        try {
+        Connection connection = DriverManager.getConnection(null);
+        }catch (SQLException e){
+            System.out.println("SQLExp");
+        }
+        Binary binary = null;
+       try {
+           int value = 5 / 0;
+           binary.toString();
+       }
+       catch (ArithmeticException arithmeticException){
+           System.out.println("Деление на 0");
+       }
+       catch (NullPointerException nullPointerException){
+           System.out.println("NPE");
+       }
+       finally {
+           System.out.println(" Finally");
+       }
+
+            /*
         String numbers = "12345";
         Integer number = 200;
         Double number2 = 200.0;
@@ -41,6 +76,7 @@ public class main {
         путем изменения порядка битов в двоичном
         представлении с двумя дополнениями указанного значения int
          */
+        /*
         System.out.println(Integer.bitCount(104435345));
         System.out.println(Integer.compare(1,4)); //сравнивает значения чисел и возвращает boolean
         System.out.println(Integer.compareUnsigned(4,4)); //сравнение без знака -
@@ -71,5 +107,7 @@ public class main {
         System.out.println(number.equals(number2));
 
  */
+
+
     }
 }

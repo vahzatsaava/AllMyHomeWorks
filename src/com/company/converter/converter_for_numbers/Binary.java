@@ -32,7 +32,7 @@ public class Binary {
         StringBuilder stringBuilder = new StringBuilder();
         while (valueTen > 0) {
             int result = valueTen % 2;
-            stringBuilder.insert(0,result);
+            stringBuilder.insert(0, result);
             valueTen = valueTen / 2;
         }
         /*
@@ -43,24 +43,33 @@ public class Binary {
         }
 
          */
-       // String reversed = reverseString(stringBuilder.toString());
+        // String reversed = reverseString(stringBuilder.toString());
         return new Binary(stringBuilder.toString());
     }
 
-    public static int parseDecimal(Binary binary){
+    public static int parseDecimal(Binary binary) {
         final double binValue = 2;
         String bin = binary.toString();
         double res = 0;
         //преобразовать символ в int
         for (int i = 0; i < bin.length(); i++) {
-             double j = bin.length() - i - 1;
-             double results =  (Integer.parseInt(bin.charAt(i) + "" ) * Math.pow(binValue, j)) ;
-             res += results;
+            double j = bin.length() - i - 1;
+             /* 1- первый способ .используя вычитание получаем значение (таблица unicode)
+             char binChar = bin.charAt(i);
+             int x = binChar - '0';
+             double results =  (x * Math.pow(binValue, j)) ;
+              */
+            // 2-й способ(прибавляем ковычки и парсим в инт)
+            //(Integer.parseInt(bin.charAt(i) + "" )
 
+            //3-й способ используем статический метод Character.getNumericalValue()
+            char binChar = bin.charAt(i);
+            int binInt = Character.getNumericValue(binChar);
+            double results = binInt * Math.pow(binValue, j);
+            res += results;
         }
-        return (int)res;
+        return (int) res;
     }
-
 
     @Override
     public String toString() {
