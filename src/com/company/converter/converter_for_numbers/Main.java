@@ -1,28 +1,48 @@
 package com.company.converter.converter_for_numbers;
 
 public class Main {
-    public static void main(String[] args)  {
-        Binary binary = new Binary("000010");
-        System.out.println(binary);
-        Binary binary1 = Binary.parseBinary(8);
-        System.out.println(binary1);
-        System.out.println( Binary.parseDecimal(new Binary("1000")));
+    public static void main(String[] args) {
+        Binary binary = null;
         try {
-        Hexadecimal hexadecimal = new Hexadecimal("VV");
-
+            binary = new Binary("000010");
+        } catch (Exception e) {
+            System.out.println("Exep Binary");
         }
-        catch (Exception e){
+        try {
+            Binary binary1 = Binary.parseBinary(8);
+        } catch (Exception e) {
+            System.out.println("Exeption Exp");
+        }
+        try {
+            System.out.println(Binary.parseDecimal(new Binary("1000")));
+        } catch (Exception e) {
+            System.out.println("Exep binary");
+        }
+        Hexadecimal hexadecimal = null;
+        try {
+            hexadecimal = new Hexadecimal("AA");
+        } catch (Exception e) {
             System.out.println("Exp");
         }
         try {
-         System.out.println(Hexadecimal.parseHexadecimals(binary));
+            System.out.println(Hexadecimal.parseHexadecimals(binary));
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Exp");
         }
-
-
+        Hexadecimal hexadecimal1 = null;
+        try {
+            hexadecimal1 = new Hexadecimal("AA");
+        }catch (Exception e){
+            System.out.println("Exp2");
+        }
+        //тест
+        try {
+            System.out.println(Hexadecimal.testValues(hexadecimal, hexadecimal1));
+        }
+        catch (NullPointerException nullPointerException){
+            System.out.println("Null Exeption");
+        }
 
 
 

@@ -10,11 +10,13 @@ public class Binary {
 
     private String binary = "";
 
-    public Binary(String binary) {
+    public Binary(String binary) throws Exception {
+
         if (validate(binary)) {
             this.binary = binary;
-        } else {
-            this.binary = "1";
+        }
+        else {
+            throw new Exception();
         }
     }
 
@@ -28,7 +30,7 @@ public class Binary {
         return true;
     }
 
-    public static Binary parseBinary(int valueTen) {
+    public static Binary parseBinary(int valueTen) throws Exception {
         StringBuilder stringBuilder = new StringBuilder();
         while (valueTen > 0) {
             int result = valueTen % 2;
