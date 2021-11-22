@@ -2,7 +2,7 @@ package com.company.converter.converter_for_numbers;
 
 public class Main {
     public static void main(String[] args) {
-        Binary binary = null;
+        Binary binary = null; //почему так нельзя прописать???
         try {
             binary = new Binary("000010");
         } catch (Exception e) {
@@ -33,17 +33,15 @@ public class Main {
         Hexadecimal hexadecimal1 = null;
         try {
             hexadecimal1 = new Hexadecimal("AA");
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Exp2");
         }
         //тест
         try {
             System.out.println(Hexadecimal.testValues(hexadecimal, hexadecimal1));
-        }
-        catch (NullPointerException nullPointerException){
+        } catch (NullPointerException nullPointerException) {
             System.out.println("Null Exeption");
         }
-
 
 
     }

@@ -64,9 +64,10 @@ public class Hexadecimal {
         }
         return true;
     }
-// метод тест
+
+    // метод тест
     public static boolean testValues(Hexadecimal hexadecimal, Hexadecimal hexadecimal1) {
-        if (hexadecimal.hexadecimal == hexadecimal1.hexadecimal) {
+        if (hexadecimal.hexadecimal.equals(hexadecimal1.hexadecimal)) {
             return true;
         }
         return false;

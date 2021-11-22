@@ -19,7 +19,6 @@ public class Binary {
             throw new Exception();
         }
     }
-
     //метод проверяет ввели ли мы 2-значное число где 0-ли и 1-цы
     public static boolean validate(String binary) {
         for (int i = 0; i < binary.length(); i++) {
