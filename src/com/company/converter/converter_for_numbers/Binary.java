@@ -10,13 +10,14 @@ public class Binary {
 
     private String binary = "";
 
-    public Binary(String binary) throws Exception {
+    public Binary(String binary) throws BinaryFormatException {
 
         if (validate(binary)) {
             this.binary = binary;
         }
         else {
-            throw new Exception();
+           // Exception e = new Exception();
+            throw new BinaryFormatException();
         }
     }
     //метод проверяет ввели ли мы 2-значное число где 0-ли и 1-цы

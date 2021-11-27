@@ -4,9 +4,11 @@ public class Main {
     public static void main(String[] args) {
         Binary binary = null; //почему так нельзя прописать???
         try {
-            binary = new Binary("000010");
-        } catch (Exception e) {
+            binary = new Binary("000410");
+        } catch (BinaryFormatException e) {
             System.out.println("Exep Binary");
+            System.out.println(e.getMessage());
+          //  e.printStackTrace(); // напечатали ошибку
         }
         try {
             Binary binary1 = Binary.parseBinary(8);
