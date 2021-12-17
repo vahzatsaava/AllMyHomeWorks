@@ -22,5 +22,8 @@ public class Node {
         this.next = next;
     }
 
-
+    @Override
+    public String toString() {
+        return  value + "";
+    }
 }

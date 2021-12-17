@@ -11,7 +11,15 @@ public class Main {
         linkedList.add(123);
         linkedList.add(12);
         linkedList.add(33);
-        System.out.println(linkedList.length());
+  //      System.out.println(linkedList.length());
+
+        linkedList.add(2,5);
+        linkedList.add(65,4);
+        linkedList.add(34,0);
+        linkedList.add(12,1);
+        System.out.println(linkedList);
+        System.out.println(linkedList.getSize());
+
 
 
         /*
@@ -34,6 +42,9 @@ public class Main {
 
         //вставить элемент на любую позицию
         // создать метод для вычисления длины Linkedlista
+
+        //удалить элемент из линкеда
+
 
     }
 }

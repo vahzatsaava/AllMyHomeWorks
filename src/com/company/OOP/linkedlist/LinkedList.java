@@ -1,52 +1,49 @@
 package com.company.OOP.linkedlist;
 
+import java.io.FileNotFoundException;
+
 public class LinkedList {
     // первый элемент ссылается на null
-    Node start = null;
-    private  int size = 0;
+    private Node start = null;
+    private int size = 0;
 
     public void add(int value) {
         Node newNode = new Node(value);
+        size++;
         if (start == null) {
             start = newNode;
         } else {
             getLast().setNext(newNode);
             // last.setNext(newNode);
         }
-
     }
 
-    public void add(int value, int position) {
-
-    }
-
-    // первый метод нахождения длины нашего списка
-    // колличество ссылок которые не равны null ищем их и прибавляем size++
-    // current = current.getNext(); меняем текущую ссылку
-    //возвращаем size + 1,тк последняя ссылка всегда будет (null)
-    /*
-    public int length() {
-        Node current = start;
-        while (current.getNext() != null) {
-            size++;
-            current = current.getNext();
+    public void add(int value, int position) throws IndexOutOfBoundsException {
+        if (position > size) {
+            throw new IndexOutOfBoundsException("Введенная позиция больше длины !");
         }
-        return size + 1;
-    }
 
-     */
-
-
-    public int length() {
-        Node current = start;
-        while (current != null){
+        Node node = new Node(value);
         size++;
-        current = current.getNext();
+
+        if (position == 0) {
+            node.setNext(start);
+            start = node;
+            return;
         }
+        Node current = start;
+        int count = 0;
+        while (current != null) {
+            if (position - 1 == count) {
+                break;
+            }
+            current = current.getNext();
+            count++;
+        }
+        node.setNext(current.getNext());
+        current.setNext(node);
 
-        return size;
     }
-
 
 
 
@@ -68,5 +65,8 @@ public class LinkedList {
             current = current.getNext();
         }
         return current;
+    }
+    public int getSize() {
+        return size;
     }
 }
