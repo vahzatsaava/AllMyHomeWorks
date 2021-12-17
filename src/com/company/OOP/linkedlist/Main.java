@@ -19,6 +19,9 @@ public class Main {
         linkedList.add(12,1);
         System.out.println(linkedList);
         System.out.println(linkedList.getSize());
+        System.out.println(" sdfsdfsdf");
+        linkedList.pop();
+        System.out.println(linkedList+ " ");
 
 
 

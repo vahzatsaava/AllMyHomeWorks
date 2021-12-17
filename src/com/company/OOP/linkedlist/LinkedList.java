@@ -45,6 +45,26 @@ public class LinkedList {
 
     }
 
+    public Node pop() throws IndexOutOfBoundsException {
+        if (size == 0) {
+            throw new IndexOutOfBoundsException("Нет элементов для удаления !");
+        }
+        Node current = start;
+        while (current.getNext() != null) {
+            current = current.getNext();
+            if (current.getNext() == null) {
+                return current;
+            }
+        }
+        return null;
+    }
+
+    public Node pop(int position) throws IndexOutOfBoundsException {
+        if (position > size){
+            throw new IndexOutOfBoundsException("Введенное значение больше длинны Листа");
+        }
+        return null;
+    }
 
 
     @Override
@@ -66,6 +86,7 @@ public class LinkedList {
         }
         return current;
     }
+
     public int getSize() {
         return size;
     }
