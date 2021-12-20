@@ -7,7 +7,6 @@ public class LinkedList {
     private Node start = null;
     private int size = 0;
 
-
     public void add(int value) {
         Node newNode = new Node(value);
         size++;
@@ -62,18 +61,29 @@ public class LinkedList {
         }
         current.setNext(null);
 
-
         return current;
     }
-
-
 
 
     public Node pop(int position) throws IndexOutOfBoundsException {
         if (position > size) {
             throw new IndexOutOfBoundsException("Введенное значение больше длинны Листа");
         }
-        return null;
+        if (position == 0){
+            start = start.getNext();
+        }
+        Node current = start;
+        int count = 0;
+        while (current != null) {
+            if (position - 1 == count) {
+                break;
+            }
+            current = current.getNext();
+            count++;
+        }
+        current.setNext(current.getNext().getNext());
+
+        return current;
     }
 
 

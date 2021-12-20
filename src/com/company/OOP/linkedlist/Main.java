@@ -23,6 +23,13 @@ public class Main {
         System.out.println(linkedList.getSize());
         System.out.println(linkedList.pop());
         System.out.println(linkedList);
+        linkedList.pop(1);
+        System.out.println(linkedList);
+        System.out.println(linkedList.pop(1));
+        System.out.println(linkedList);
+
+
+
 
 
 
