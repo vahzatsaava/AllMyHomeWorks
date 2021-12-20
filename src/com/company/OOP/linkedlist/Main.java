@@ -16,12 +16,13 @@ public class Main {
         linkedList.add(2,5);
         linkedList.add(65,4);
         linkedList.add(34,0);
-        linkedList.add(12,1);
+        linkedList.add(4);
+        linkedList.add(-55);
+
         System.out.println(linkedList);
         System.out.println(linkedList.getSize());
-        System.out.println(" sdfsdfsdf");
-        linkedList.pop();
-        System.out.println(linkedList+ " ");
+        System.out.println(linkedList.pop());
+        System.out.println(linkedList);
 
 
 

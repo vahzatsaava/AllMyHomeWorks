@@ -7,6 +7,7 @@ public class LinkedList {
     private Node start = null;
     private int size = 0;
 
+
     public void add(int value) {
         Node newNode = new Node(value);
         size++;
@@ -45,22 +46,31 @@ public class LinkedList {
 
     }
 
+
     public Node pop() throws IndexOutOfBoundsException {
         if (size == 0) {
             throw new IndexOutOfBoundsException("Нет элементов для удаления !");
         }
         Node current = start;
-        while (current.getNext() != null) {
-            current = current.getNext();
-            if (current.getNext() == null) {
-                return current;
+        int count = 0;
+        while (current != null) {
+            if (count == size - 2) {
+                break;
             }
+            current = current.getNext();
+            count++;
         }
-        return null;
+        current.setNext(null);
+
+
+        return current;
     }
 
+
+
+
     public Node pop(int position) throws IndexOutOfBoundsException {
-        if (position > size){
+        if (position > size) {
             throw new IndexOutOfBoundsException("Введенное значение больше длинны Листа");
         }
         return null;
