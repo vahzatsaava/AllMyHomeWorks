@@ -7,6 +7,7 @@ public class LinkedList {
     private Node start = null;
     private int size = 0;
 
+
     public void add(int value) {
         Node newNode = new Node(value);
         size++;
@@ -44,24 +45,31 @@ public class LinkedList {
         current.setNext(node);
 
     }
-
+    //  == -сравнивается адрес обЪекта
+    //
+    //DZ
+    //класс который  будет тестировать работоспособность методов
+    // Unit test
 
     public Node pop() throws IndexOutOfBoundsException {
         if (size == 0) {
             throw new IndexOutOfBoundsException("Нет элементов для удаления !");
         }
-        Node current = start;
-        int count = 0;
-        while (current != null) {
-            if (count == size - 2) {
-                break;
-            }
-            current = current.getNext();
-            count++;
+        Node startValue = start; // сохраняем(создаем ссылку на страрт)
+        if (size == 1) {
+            start = null;
+            return startValue; // возвращаем значение старта с помощью ранее сохраненной ссылки ;
         }
+        //доделать
+        // чтобы возвращал ссылку метод (удаленный элемент)
+        Node current = start;
+        while (current.getNext().getNext() != null) {
+            current = current.getNext();
+        }
+        Node newNode = current.getNext(); // создаем ссылку чтобы сохранить значение последнего удаленного элемента
         current.setNext(null);
 
-        return current;
+        return newNode; // возвращаем последний уудаленный элемент
     }
 
 
@@ -69,8 +77,9 @@ public class LinkedList {
         if (position > size) {
             throw new IndexOutOfBoundsException("Введенное значение больше длинны Листа");
         }
-        if (position == 0){
+        if (position == 0) {
             start = start.getNext();
+            return start;
         }
         Node current = start;
         int count = 0;
@@ -81,9 +90,10 @@ public class LinkedList {
             current = current.getNext();
             count++;
         }
-        current.setNext(current.getNext().getNext());
+        Node newNode = current.getNext(); //создаем ссылку на элемент который будет удален (сохраняем его)
+        current.setNext(current.getNext().getNext());//устанавливаем ссылку на следующий Node (перепрыгиваем через нашу позицию чтобы удалиллся элемент)
 
-        return current;
+        return newNode;
     }
 
 

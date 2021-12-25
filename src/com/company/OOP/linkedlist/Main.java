@@ -18,33 +18,30 @@ public class Main {
         linkedList.add(34,0);
         linkedList.add(4);
         linkedList.add(-55);
-
         System.out.println(linkedList);
-        System.out.println(linkedList.getSize());
-        System.out.println(linkedList.pop());
-        System.out.println(linkedList);
-        linkedList.pop(1);
-        System.out.println(linkedList);
-        System.out.println(linkedList.pop(1));
+        System.out.println(linkedList.pop(5));
         System.out.println(linkedList);
 
+        java.util.LinkedList<String> res = new java.util.LinkedList<>();
 
 
 
 
 
-        /*
-        Node node0 = new Node();
+/*
+        Node node0 = new Node(1);
         node0.setValue(5);
-        Node node1 = new Node();
+        Node node1 = new Node(2);
         node1.setValue(1);
-        Node node2 = new Node();
+        Node node2 = new Node(4);
         node2.setValue(3);
         node0.setNext(node1);
         node1.setNext(node2);
-        System.out.println(node2.getNext());
+        System.out.println(node1.getNext());
 
-         */
+ */
+
+
 
         //инкапсуляцую
         //новое значение для узла это новый узел
