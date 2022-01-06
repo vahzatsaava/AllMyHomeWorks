@@ -58,6 +58,7 @@ public class LinkedList {
         Node startValue = start; // сохраняем(создаем ссылку на страрт)
         if (size == 1) {
             start = null;
+            size--;
             return startValue; // возвращаем значение старта с помощью ранее сохраненной ссылки ;
         }
         //доделать
@@ -66,6 +67,7 @@ public class LinkedList {
         while (current.getNext().getNext() != null) {
             current = current.getNext();
         }
+        size--;
         Node newNode = current.getNext(); // создаем ссылку чтобы сохранить значение последнего удаленного элемента
         current.setNext(null);
 
@@ -79,6 +81,7 @@ public class LinkedList {
         }
         if (position == 0) {
             start = start.getNext();
+            size--;
             return start;
         }
         Node current = start;
@@ -90,6 +93,7 @@ public class LinkedList {
             current = current.getNext();
             count++;
         }
+        size--;
         Node newNode = current.getNext(); //создаем ссылку на элемент который будет удален (сохраняем его)
         current.setNext(current.getNext().getNext());//устанавливаем ссылку на следующий Node (перепрыгиваем через нашу позицию чтобы удалиллся элемент)
 
@@ -114,7 +118,12 @@ public class LinkedList {
         while (current.getNext() != null) {
             current = current.getNext();
         }
+
         return current;
+    }
+
+    public Node getStart() {
+        return start;
     }
 
     public int getSize() {

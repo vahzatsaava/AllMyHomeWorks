@@ -4,25 +4,36 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Main {
+    private static boolean test(LinkedList linkedList, LinkedList linkedList1) {
+
+        return linkedList.getSize() == linkedList1.getSize();
+    }
+
     public static void main(String[] args) {
+        new UnitTestLinked();
         LinkedList linkedList = new LinkedList();
         linkedList.add(5);
         linkedList.add(6);
         linkedList.add(123);
         linkedList.add(12);
         linkedList.add(33);
-  //      System.out.println(linkedList.length());
-
-        linkedList.add(2,5);
-        linkedList.add(65,4);
-        linkedList.add(34,0);
-        linkedList.add(4);
-        linkedList.add(-55);
+        LinkedList linkedList1 = new LinkedList();
+        linkedList1.add(5);
+        linkedList1.add(6);
+        linkedList1.add(123);
+        linkedList1.add(12);
+        linkedList1.add(33);
+        linkedList1.add(12);
+        linkedList1.pop();
+        boolean isSim = test(linkedList,linkedList1);
+        linkedList.pop(0);
+        linkedList1.pop(0);
+        linkedList.pop();
+        linkedList1.pop(1);
         System.out.println(linkedList);
-        System.out.println(linkedList.pop(5));
-        System.out.println(linkedList);
-
-        java.util.LinkedList<String> res = new java.util.LinkedList<>();
+        System.out.println(linkedList1);
+        System.out.println(linkedList.getSize());
+        System.out.println(linkedList1.getSize());
 
 
 
@@ -40,7 +51,6 @@ public class Main {
         System.out.println(node1.getNext());
 
  */
-
 
 
         //инкапсуляцую
