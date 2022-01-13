@@ -20,11 +20,10 @@ public class Hexadecimal {
     //Конвертер без участия классов
     private String hexadecimal = "";
 
-    public Hexadecimal(String hexadecimal) throws Exception{
+    public Hexadecimal(String hexadecimal) throws Exception {
         if (isValid(hexadecimal)) {
             this.hexadecimal = hexadecimal;
-        }
-        else {
+        } else {
             throw new Exception();
         }
 
@@ -34,7 +33,6 @@ public class Hexadecimal {
         int decValue = Binary.parseDecimal(binary);
         return parseHexadecimal(decValue);
     }
-
 
     public static Hexadecimal parseHexadecimal(int valueTen) throws Exception {
         String result = "";
@@ -67,6 +65,13 @@ public class Hexadecimal {
         return true;
     }
 
+    // метод тест
+    public static boolean testValues(Hexadecimal hexadecimal, Hexadecimal hexadecimal1) {
+        if (hexadecimal.hexadecimal.equals(hexadecimal1.hexadecimal)) {
+            return true;
+        }
+        return false;
+    }
 
     @Override
     public String toString() {

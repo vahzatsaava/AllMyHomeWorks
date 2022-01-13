@@ -10,14 +10,16 @@ public class Binary {
 
     private String binary = "";
 
-    public Binary(String binary) {
+    public Binary(String binary) throws BinaryFormatException {
+
         if (validate(binary)) {
             this.binary = binary;
-        } else {
-            this.binary = "1";
+        }
+        else {
+           // Exception e = new Exception();
+            throw new BinaryFormatException();
         }
     }
-
     //метод проверяет ввели ли мы 2-значное число где 0-ли и 1-цы
     public static boolean validate(String binary) {
         for (int i = 0; i < binary.length(); i++) {
@@ -28,7 +30,7 @@ public class Binary {
         return true;
     }
 
-    public static Binary parseBinary(int valueTen) {
+    public static Binary parseBinary(int valueTen) throws Exception {
         StringBuilder stringBuilder = new StringBuilder();
         while (valueTen > 0) {
             int result = valueTen % 2;
