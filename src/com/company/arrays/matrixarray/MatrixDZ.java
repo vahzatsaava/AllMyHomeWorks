@@ -14,7 +14,6 @@ public class MatrixDZ {
                 summ += matrix[i][j];
             }
         }
-
          */
         //цикл foreach
         for (int[] i : matrix
@@ -23,7 +22,6 @@ public class MatrixDZ {
             ) {
                 summ += j;
             }
-
         }
         System.out.println("Сумма элементов - " + summ);
     }
@@ -75,13 +73,15 @@ public class MatrixDZ {
     }
 
     // В матрице элементы под главной диагональю обнулить
+    //пройтись столько раз сколько надо обнулить элементов
     public static void doZeroInDGL(int[][] matrix) {
         System.out.println("Значениям под главной диагональю присваиваем - 0");
+        int count = 0;
         for (int i = 0; i < matrix.length; i++) {
-
             for (int j = 0; j < matrix[i].length; j++) {
-                if (i == j && i != matrix[i].length - 1) {
-                    matrix[i + 1][j] = 0;
+
+                if (i > j) {
+                    matrix[i][j] = 0;
                 }
                 System.out.print(matrix[i][j] + " ");
             }
@@ -140,19 +140,30 @@ public class MatrixDZ {
     // Сделать циклический сдвиг четных строк на 1 элемент вправо, а нечётных на 2 вправо
     public static void moveInPosition(int[][] matrix) {
         int[][] b = new int[matrix.length][matrix.length];
+
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                if (j % 2 == 0) {
+                if (i % 2 == 0) {
                     swapsElementsInArray(matrix[i], 1);
+                    break;
+
                 } else {
                     swapsElementsInArray(matrix[i], 2);
+                    break;
                 }
-                System.out.print(matrix[i] + " ");
             }
-            System.out.println();
         }
-
+        for (int[] i : matrix) {
+            //вывод в одну строку
+            System.out.println(Arrays.toString(i));
+            //     вывод с помощью вложенного цикла
+//            for (int value : i) {
+//                System.out.print(value + " ");
+//            }
+//            System.out.println();
+        }
     }
+
 
     public static int[] swapsElementsInArray(int[] array, int position) {
         for (int i = 0; i < position; i++) {
@@ -169,11 +180,11 @@ public class MatrixDZ {
 
     public static void main(String[] args) {
         int[][] matrixI = {{1, -402, 3}, {0, -60, -120}, {-1, -505, -900}};
-        int[][] matrixJ = {{1, 2, 3}, {4, 7, 9}, {-1, -10, 0}};
+        int[][] matrixJ = {{1, 2, 3}, {4, 7, 9}, {-1, -10, 5}};
         //findIncrease(matrixJ);
         //findIncreaseI(matrixI);
-
-        moveInPosition(matrixJ);
+        //moveInPosition(matrixI);
+        doZeroInDGL(matrixJ);
 
 
     }
