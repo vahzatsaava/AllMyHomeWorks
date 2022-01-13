@@ -1,0 +1,11 @@
+Название теста testPopInStartPositionDate Wed Jan 05 18:35:50 MSK 2022Результатtrue
+Название теста testAdd Date Wed Jan 05 18:38:12 MSK 2022 Результат true
+Название теста testAddPositionLast Date Wed Jan 05 18:38:13 MSK 2022 Результат true
+Название теста testAddPositionLast Date Wed Jan 05 18:38:13 MSK 2022 Результат true
+Название теста testPop Date Wed Jan 05 18:38:13 MSK 2022 Результат true
+Название теста testPopInStartPosition Date Wed Jan 05 18:38:13 MSK 2022 Результат true
+Название теста;testAdd Date;Wed Jan 05 18:39:19 MSK 2022- Результат;true
+Название теста;testAddPositionLast Date;Wed Jan 05 18:39:19 MSK 2022- Результат;true
+Название теста;testAddPositionLast Date;Wed Jan 05 18:39:19 MSK 2022- Результат;true
+Название теста;testPop Date;Wed Jan 05 18:39:19 MSK 2022- Результат;true
+Название теста;testPopInStartPosition Date;Wed Jan 05 18:39:19 MSK 2022- Результат;true
