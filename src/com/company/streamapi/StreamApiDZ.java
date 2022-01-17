@@ -47,7 +47,13 @@ public class StreamApiDZ {
     //задан массив с целыми числами -  копейкамию
     //преобразовать так, чтобы элемент в виде Х руб., Y коп
     public static void exchangeCentsToDollar(int[] array) {
+
         // int cents = Arrays.stream(array).
+        Object[] arr = Arrays.stream(array)
+                .mapToObj(i -> String.format("%d руб %d коп", i / 100, i % 100))
+                .toArray();
+        System.out.println(Arrays.toString(arr));
+
     }
 
     public static void showMaxEnginePower(List<CarsForStream> carsEngine) {
@@ -55,6 +61,9 @@ public class StreamApiDZ {
                 .filter(i -> i.getPower() > 250)
                 .toArray();
         System.out.println(Arrays.toString(pow));
+        CarsForStream max = carsEngine.stream().max(CarsForStream::compare).get();
+        System.out.println(max.getPower());
+
     }
 
     //убедиться в том что в массиве все числа четные
@@ -106,9 +115,9 @@ public class StreamApiDZ {
         allCarsPower.add(mercedes);
         showMaxEnginePower(allCarsPower);
         //вывод максимума
-        CarsForStream max = allCarsPower.stream().max(CarsForStream::compare).get();
-        System.out.println(max.getPower());
+
         isEvenNumbers(array);
+        exchangeCentsToDollar(cents);
 
     }
 }

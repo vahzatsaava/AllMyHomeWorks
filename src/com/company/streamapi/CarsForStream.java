@@ -12,6 +12,7 @@ public class CarsForStream {
         this.color = color;
         this.power = power;
     }
+
     public String getModel() {
         return model;
     }
