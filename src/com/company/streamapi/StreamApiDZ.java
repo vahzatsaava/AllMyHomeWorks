@@ -9,9 +9,9 @@ public class StreamApiDZ {
     //В массиве чисел найти количество таких чисел,
     // которые кратны 3 и при этом явялются нечетными
     public static void multipleOfThree(int[] array) {
-        long countOfDigits = Arrays.stream(array).
-                filter(i -> i % 3 == 0).
-                filter(i -> i % 2 == 1)
+        long countOfDigits = Arrays.stream(array)
+                .filter(i -> i % 3 == 0)
+                .filter(i -> i % 2 == 1)
                 .count();
         System.out.println(countOfDigits);
     }
@@ -19,9 +19,9 @@ public class StreamApiDZ {
     //Дан arraylist, который состоит из названий продуктов.
     // Найти те продукты, которые начинаются с буквы А
     public static void beginAatFirstSymbol(List<String> products) {
-        Object[] product = products.stream().
-                filter(i -> i.charAt(0) == 'A').
-                toArray();
+        Object[] product = products.stream()
+                .filter(i -> i.charAt(0) == 'A')
+                .toArray();
         System.out.println(Arrays.toString(product));
     }
 
