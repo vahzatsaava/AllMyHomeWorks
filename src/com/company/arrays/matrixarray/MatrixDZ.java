@@ -16,8 +16,7 @@ public class MatrixDZ {
         }
          */
         //цикл foreach
-        for (int[] i : matrix
-        ) {
+        for (int[] i : matrix) {
             for (int j : i
             ) {
                 summ += j;
@@ -76,13 +75,9 @@ public class MatrixDZ {
     //пройтись столько раз сколько надо обнулить элементов
     public static void doZeroInDGL(int[][] matrix) {
         System.out.println("Значениям под главной диагональю присваиваем - 0");
-        int count = 0;
         for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-
-                if (i > j) {
-                    matrix[i][j] = 0;
-                }
+            for (int j = 0; j < i; j++) {
+                matrix[i][j] = 0;
                 System.out.print(matrix[i][j] + " ");
             }
             System.out.println();
@@ -95,7 +90,9 @@ public class MatrixDZ {
     public static void findIncrease(int[][] matrix) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < matrix.length; i++) {
+            //последеняя переменная массива
             int lastValue = 0;
+            //предпоследняя переменная массива
             int beforeLastValue = 0;
             for (int j = 0; j < matrix[i].length - 1; j++) {
                 lastValue = matrix[i][matrix[i].length - 1];
@@ -109,7 +106,6 @@ public class MatrixDZ {
                     break;
                 }
             }
-
         }
         System.out.println(stringBuilder);
     }
@@ -129,7 +125,7 @@ public class MatrixDZ {
                 //предпоследний элемент столбца
                 beforeLastValue = matrix[matrix.length - 2][j];
                 if (matrix[i][j] > matrix[i + 1][j] && lastValue < beforeLastValue) {
-                    stringBuilder.append("Убывающие строки - ").append(j).append("\n");
+                    stringBuilder.append("Убывающие столбцы - ").append(j).append("\n");
 
                 }
             }
@@ -166,6 +162,28 @@ public class MatrixDZ {
 
 
     public static int[] swapsElementsInArray(int[] array, int position) {
+        /*
+        if (position < 0) throw new IllegalArgumentException("Значение отрицательное !");
+        int rightIndexPosition = array.length - position;
+        if (rightIndexPosition == 0 || rightIndexPosition == array.length) {
+            return array;
+        }
+        //создаем новый массив где будем перезаливать данные
+        int[] newArray = new int[array.length];
+        //создаем счетчик для значений массива
+        int arrIndex = 0;
+        //пока значение счетчика меньше длины массива (прогоняем условие)
+        while (arrIndex < array.length) {
+            if (rightIndexPosition < array.length - 1) {
+                rightIndexPosition = 0;
+            }
+            //присваиваем значение  массива array от индекса[rightIndexPosition] newArray[arrIndex++]
+            newArray[arrIndex++] = array[rightIndexPosition++];
+        }
+        return newArray;
+
+         */
+
         for (int i = 0; i < position; i++) {
             int lastValue = array[array.length - 1];
             for (int j = array.length - 1; j > 0; j--) {
@@ -175,17 +193,23 @@ public class MatrixDZ {
         }
         return array;
 
+
     }
 
 
     public static void main(String[] args) {
         int[][] matrixI = {{1, -402, 3}, {0, -60, -120}, {-1, -505, -900}};
         int[][] matrixJ = {{1, 2, 3}, {4, 7, 9}, {-1, -10, 5}};
+        int[][] matrixY = {
+                {5, 2, 3},
+                {4, 5, 8},
+                {1, 8, 10}};
+        int[] arr = {1, 2, 3, 4, 5, 6};
         //findIncrease(matrixJ);
         //findIncreaseI(matrixI);
         //moveInPosition(matrixI);
-        doZeroInDGL(matrixJ);
-
+        findIncreaseI(matrixY);
+        moveInPosition(matrixJ);
 
     }
 }
