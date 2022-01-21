@@ -1,10 +1,10 @@
 package com.company.spring;
 
-public class Books {
+public class Book {
         private String name;
         private String author;
 
-        public Books(String name, String author) {
+        public Book(String name, String author) {
             this.name = name;
             this.author = author;
         }

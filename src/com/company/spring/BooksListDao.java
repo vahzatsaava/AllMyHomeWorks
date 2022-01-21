@@ -5,16 +5,9 @@ import java.util.List;
 
 
 public class BooksListDao implements BooksDao {
-    public LinkedList<Books> books = new LinkedList();
+    public LinkedList<Book> books = new LinkedList();
 
-    public BooksListDao() {
-    }
-
-    public void add(String name, String author) {
-        this.books.add(new Books(name, author));
-    }
-
-    public List<Books> getBooks() {
+    public List<Book> getBooks() {
         return this.books;
     }
 
@@ -23,10 +16,21 @@ public class BooksListDao implements BooksDao {
             return s.getName().equals(name);
         });
     }
+    public Book showAddedBook(String name, String author){
 
+        return new Book(name, author);
+    }
+    public int booksLength(){
+        return books.size();
+    }
     @Override
     public void getAllBooks() {
         System.out.println(this.books);
+    }
+
+    @Override
+    public void add(String name, String author) {
+        this.books.add(new Book(name, author));
     }
 }
 
