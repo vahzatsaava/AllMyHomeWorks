@@ -16,9 +16,8 @@ public class BooksListDao implements BooksDao {
             return s.getName().equals(name);
         });
     }
-    public Book showAddedBook(String name, String author){
-
-        return new Book(name, author);
+    public void showLastElement(){
+        System.out.println(books.getLast());
     }
     public int booksLength(){
         return books.size();
