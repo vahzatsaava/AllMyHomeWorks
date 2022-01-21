@@ -6,7 +6,7 @@ public class BooksView {
     private static final BooksListDao bookSaver = new BooksListDao();
 
     public static void enterPosition() {
-        while (bookSaver.booksLength() < 10) {
+      //  while (bookSaver.booksLength() < 10) {
 
             System.out.println("Выберите позицию !");
             System.out.println("Добавить книгу - 1");
@@ -16,6 +16,7 @@ public class BooksView {
             String author = "";
             Scanner scanner = new Scanner(System.in);
             int res = Integer.parseInt(scanner.next());
+        while (bookSaver.booksLength() < 4) {
             switch (res) {
                 case 1:
                     System.out.println("Введите пожалуйста книгу и автора !");
@@ -82,10 +83,15 @@ public class BooksView {
                     break;
                 default:
             }
+            if (bookSaver.booksLength() == 3){
+                bookSaver.getAllBooks();
+            }
+        }
 
             scanner.close();
-        }
+      //  }
     }
+
 }
 
 
