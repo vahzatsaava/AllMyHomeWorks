@@ -7,12 +7,12 @@ public class BooksView {
     private static final BooksListDao bookSaver = new BooksListDao();
 
     public static void enterPosition() {
-        showPanel();
         Scanner scanner = new Scanner(System.in);
-        while (bookSaver.booksLength() < 4) {
+        int a = 1;
+        while (true) {
+            showPanel();
             String name = "";
             String author = "";
-
             int res = 0;
             try {
                 res = scanner.nextInt();
@@ -28,26 +28,24 @@ public class BooksView {
                     bookSaver.add(name, author);
                     System.out.println("Добавленная книга ");
                     bookSaver.showLastElement();
-                    showPanel();
                     break;
                 case 2:
                     System.out.println("Введите какую книгу или автора необходимо удалить !");
                     name = scanner.next();
                     bookSaver.remove(name);
-                    showPanel();
                     break;
 
                 case 3:
-                    System.out.println("Вывести все книги на полку !");
+                    System.out.println("Выйти из программы и вывести все книги на полку !");
                     bookSaver.getAllBooks();
-                    showPanel();
+                    a = -1;
                     break;
-                default:
             }
-            if (bookSaver.booksLength() == 4) {
-                bookSaver.getAllBooks();
+            if (a == -1){
+                break;
             }
         }
+
         scanner.close();
 
     }
@@ -55,7 +53,7 @@ public class BooksView {
         System.out.println("Выберите позицию !");
         System.out.println("Добавить книгу - 1");
         System.out.println("Удалить книгу - 2");
-        System.out.println("Показать имеющиеся книги - 3");
+        System.out.println("Выйти из программы и вывести все книги на полку - 3!");
     }
 
 
