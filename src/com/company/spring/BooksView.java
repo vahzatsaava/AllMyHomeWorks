@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class BooksView {
     private static final BooksListDao bookSaver = new BooksListDao();
+    private static BreakBook bookEnum;
 
     /*
         public static void repeatInput() {
@@ -56,6 +57,13 @@ public class BooksView {
     public static void start(){
         while (true){
             enterPosition();
+            if (bookEnum.equals(BreakBook.InputMismatch)){
+                System.out.println(" null");
+            }
+            else if (bookEnum.equals(BreakBook.LoopBreakExit)){
+                break;
+            }
+
         }
     }
     public static void enterPosition() {
@@ -71,7 +79,8 @@ public class BooksView {
                 res = scanner.nextInt();
             } catch (InputMismatchException i) {
                 System.out.println("введите цифру !");
-               // continue;//гонять пока не введет элемент
+                // continue;//гонять пока не введет элемент
+                bookEnum = BreakBook.InputMismatch;
             }
             switch (res) {
                 case 1:
@@ -91,6 +100,7 @@ public class BooksView {
                     System.out.println("Выйти из программы и вывести все книги на полку !");
                     bookSaver.getAllBooks();
                     // a = -1;
+                    bookEnum = BreakBook.LoopBreakExit;
                     return;
             }
 //            if (a == -1){
@@ -101,6 +111,10 @@ public class BooksView {
         scanner.close();
 
     }
+    public static BreakBook getBook(){
+
+      return BreakBook.LoopBreakExit;
+}
 
     private static void showPanel() {
         System.out.println("Выберите позицию !");
