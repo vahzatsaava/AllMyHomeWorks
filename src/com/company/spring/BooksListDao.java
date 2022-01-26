@@ -5,16 +5,14 @@ import java.util.List;
 
 
 public class BooksListDao implements BooksDao {
-    public LinkedList<Book> books = new LinkedList();
+    private LinkedList<Book> books = new LinkedList();
 
     public List<Book> getBooks() {
         return this.books;
     }
 
     public void remove(String name) {
-        this.books.removeIf((s) -> {
-            return s.getName().equals(name);
-        });
+        this.books.removeIf((s) -> s.getName().equals(name));
     }
     public void showLastElement(){
         System.out.println(books.getLast());
@@ -29,8 +27,10 @@ public class BooksListDao implements BooksDao {
     }
 
     @Override
-    public void add(String name, String author) {
-        this.books.add(new Book(name, author));
+    public Book add(String name, String author) {
+        Book book = new Book(name, author);
+        this.books.add(book);
+        return book;
     }
 
 }
