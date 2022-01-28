@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class BooksView {
     private static final BooksListDao bookSaver = new BooksListDao();
     private static BreakBook bookEnum;
+    private static boolean isBreaking = true;
+    private static boolean isInputMismatch = true;
 
     /*
         public static void repeatInput() {
@@ -54,55 +56,64 @@ public class BooksView {
         }
 
      */
-    public static void start(){
-        while (true){
+    public static void start() {
+        while (true) {
             enterPosition();
-            if (bookEnum.equals(BreakBook.InputMismatch)){
-                System.out.println(" null");
+            if (getBook() == BreakBook.InputMismatch){
+                System.out.println("Ошибка");
             }
-            else if (bookEnum.equals(BreakBook.LoopBreakExit)){
+            if (getBook()== BreakBook.LoopBreakExit){
                 break;
             }
+//            if (bookEnum.equals(BreakBook.InputMismatch)){
+//                System.out.println(" null");
+//            }
+//            else if (bookEnum.equals(BreakBook.LoopBreakExit)){
+//                break;
+//            }
 
         }
     }
+
     public static void enterPosition() {
         Scanner scanner = new Scanner(System.in);
         //int a = 1;
         //цикл имеен свое имя
         //loop:
-            showPanel();
-            String name = "";
-            String author = "";
-            int res = 0;
-            try {
+        showPanel();
+        String name = "";
+        String author = "";
+        int res = 0;
+        try {
                 res = scanner.nextInt();
-            } catch (InputMismatchException i) {
-                System.out.println("введите цифру !");
-                // continue;//гонять пока не введет элемент
-                bookEnum = BreakBook.InputMismatch;
-            }
-            switch (res) {
-                case 1:
-                    System.out.println("Введите пожалуйста книгу и автора !");
-                    name = scanner.next();
-                    author = scanner.next();
-                    Book book = bookSaver.add(name, author);
-                    System.out.println(book + " созданная книга ");
-                    break;
-                case 2:
-                    System.out.println("Введите какую книгу или автора необходимо удалить !");
-                    name = scanner.next();
-                    bookSaver.remove(name);
-                    break;
+        } catch (InputMismatchException i) {
+            System.out.println("введите цифру !");
+            // continue;//гонять пока не введет элемент
+            bookEnum = BreakBook.InputMismatch;
+            isBreaking = true;
+        }
+        switch (res) {
+            case 1:
+                System.out.println("Введите пожалуйста книгу и автора !");
+                name = scanner.next();
+                author = scanner.next();
+                Book book = bookSaver.add(name, author);
+                System.out.println(book + " созданная книга ");
+                break;
+            case 2:
+                System.out.println("Введите какую книгу или автора необходимо удалить !");
+                name = scanner.next();
+                bookSaver.remove(name);
+                break;
 
-                case 3:
-                    System.out.println("Выйти из программы и вывести все книги на полку !");
-                    bookSaver.getAllBooks();
-                    // a = -1;
-                    bookEnum = BreakBook.LoopBreakExit;
-                    return;
-            }
+            case 3:
+                System.out.println("Выйти из программы и вывести все книги на полку !");
+                bookSaver.getAllBooks();
+                // a = -1;
+                bookEnum = BreakBook.LoopBreakExit;
+                isBreaking = true;
+                return;
+        }
 //            if (a == -1){
 //                break;
 //            }
@@ -111,10 +122,16 @@ public class BooksView {
         scanner.close();
 
     }
-    public static BreakBook getBook(){
 
-      return BreakBook.LoopBreakExit;
-}
+    public static BreakBook getBook() {
+        if (isBreaking) {
+            return BreakBook.LoopBreakExit;
+        }
+        if (isInputMismatch) {
+            return BreakBook.InputMismatch;
+        }
+        return BreakBook.LoopBreakExit;
+    }
 
     private static void showPanel() {
         System.out.println("Выберите позицию !");
