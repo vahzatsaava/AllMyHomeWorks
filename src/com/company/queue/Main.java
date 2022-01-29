@@ -1,8 +1,16 @@
 package com.company.queue;
 
-import java.io.File;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
 
-// предоставить возможность по заданному ключу доставать значения из файла
+    // предоставить возможность по заданному ключу доставать значения из файла
+    public static void main(String[] args) {
+        ReadValueFromFile readValue = new ReadValueFromFile();
+            readValue.showMup(readValue.addKeys());
+
+
+    }
 }
