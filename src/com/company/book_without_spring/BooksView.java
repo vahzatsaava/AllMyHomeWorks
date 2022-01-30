@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class BooksView {
     private static final BooksListDao bookSaver = new BooksListDao();
     private static final Scanner scanner = new Scanner(System.in);
-
     public static void start() {
         while (true) {
             State state = enterPosition();
