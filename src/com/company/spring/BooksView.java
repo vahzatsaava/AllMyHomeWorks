@@ -5,9 +5,6 @@ import java.util.Scanner;
 
 public class BooksView {
     private static final BooksListDao bookSaver = new BooksListDao();
-    private static BreakBook bookEnum;
-    private static boolean isBreaking = true;
-    private static boolean isInputMismatch = true;
 
     /*
         public static void repeatInput() {
@@ -58,11 +55,11 @@ public class BooksView {
      */
     public static void start() {
         while (true) {
-            enterPosition();
-            if (getBook() == BreakBook.InputMismatch){
+            State state = enterPosition();
+            if (state == State.INPUT_MISMATCH){
                 System.out.println("Ошибка");
             }
-            if (getBook()== BreakBook.LoopBreakExit){
+            if (state == State.LoopBreakExit){
                 break;
             }
 //            if (bookEnum.equals(BreakBook.InputMismatch)){
@@ -71,12 +68,13 @@ public class BooksView {
 //            else if (bookEnum.equals(BreakBook.LoopBreakExit)){
 //                break;
 //            }
-
         }
     }
 
-    public static void enterPosition() {
-        Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
+
+    public static State enterPosition() {
+
         //int a = 1;
         //цикл имеен свое имя
         //loop:
@@ -85,12 +83,12 @@ public class BooksView {
         String author = "";
         int res = 0;
         try {
-                res = scanner.nextInt();
+
+            res = scanner.nextInt();
         } catch (InputMismatchException i) {
             System.out.println("введите цифру !");
             // continue;//гонять пока не введет элемент
-            bookEnum = BreakBook.InputMismatch;
-            isBreaking = true;
+            return State.INPUT_MISMATCH;
         }
         switch (res) {
             case 1:
@@ -110,27 +108,15 @@ public class BooksView {
                 System.out.println("Выйти из программы и вывести все книги на полку !");
                 bookSaver.getAllBooks();
                 // a = -1;
-                bookEnum = BreakBook.LoopBreakExit;
-                isBreaking = true;
-                return;
+                return State.LoopBreakExit ;
         }
 //            if (a == -1){
 //                break;
 //            }
 
 
-        scanner.close();
 
-    }
-
-    public static BreakBook getBook() {
-        if (isBreaking) {
-            return BreakBook.LoopBreakExit;
-        }
-        if (isInputMismatch) {
-            return BreakBook.InputMismatch;
-        }
-        return BreakBook.LoopBreakExit;
+        return State.CONTINUE;
     }
 
     private static void showPanel() {
