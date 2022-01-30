@@ -12,7 +12,7 @@ public class BooksView {
             if (state == State.INPUT_MISMATCH){
                 System.out.println("Ошибка ввода значений !");
             }
-            if (state == State.LOOP_BREAK_EXIT){
+            if (state == State.CLOSE_AND_BREAK){
                 break;
             }
         }
@@ -53,7 +53,7 @@ public class BooksView {
                 System.out.println("Выйти из программы и вывести все книги на полку !");
                 bookSaver.getAllBooks();
                 // a = -1;
-                return State.LOOP_BREAK_EXIT;
+                return State.CLOSE_AND_BREAK;
         }
 
         return State.CONTINUE;
