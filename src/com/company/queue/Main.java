@@ -2,15 +2,15 @@ package com.company.queue;
 
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class Main {
 
     // предоставить возможность по заданному ключу доставать значения из файла
     public static void main(String[] args) {
-        ReadValueFromFile readValue = new ReadValueFromFile();
-            readValue.showMup(readValue.addKeys());
-
+        PropertiesReader readValue = new PropertiesReader();
+        readValue.getInt("peoplePerHour");
+        readValue.getString(60);
+        System.out.println(readValue);
 
     }
 }
