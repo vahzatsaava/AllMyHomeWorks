@@ -13,7 +13,6 @@ public class PropertiesReader {
         addKeys();
 
     }
-
     PropertiesReader(String fileName) throws IOException {
         this.fileName = fileName;
         addKeys();
@@ -47,7 +46,7 @@ public class PropertiesReader {
         //добавляем метод который считывает с файла в переменную text
         String text = readFile();
         //делим строку на переносы
-        String[] arraysSplitFile = text.split("\n");
+        String[] arraysSplitFile = text.split("\r\n");
         for (String s : arraysSplitFile) {
             //делим элементы по знаку равенства "=",создаем массив строк arraySplitValues
             String[] arraySplitValues = s.split("=");

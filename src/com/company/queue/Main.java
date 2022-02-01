@@ -19,7 +19,7 @@ public class Main {
         //propertiesReader.getString(60);
         //System.out.println(propertiesReader);
         String inputFromProperties = "src/com/company/queue/application.properties";
-        System.out.println(propertiesReader.toString());
+        System.out.println(propertiesReader.getString("serviceTime"));
 
     }
 }
