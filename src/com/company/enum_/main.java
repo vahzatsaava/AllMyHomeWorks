@@ -1,18 +1,7 @@
 package com.company.enum_;
 
 public class main {
-    class Car{
-        String eng;
-        String tur;
 
-        public void setEng(String eng) {
-            this.eng = eng;
-        }
-
-        public void setTur(String tur) {
-            this.tur = tur;
-        }
-    }
     public static void main(String[] args) {
         if (getDay() == DaysOfWeek.MONDAY){
             System.out.println("Понедельник");
