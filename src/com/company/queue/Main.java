@@ -7,21 +7,19 @@ import java.util.HashMap;
 public class Main {
 
     // предоставить возможность по заданному ключу доставать значения из файла
-    public static void main(String[] args) throws InterruptedException {
-        PropertiesReader propertiesReader = null;
+    public static void main(String[] args) {
+        QueueEmulator queueEmulator = null;
         try {
-            propertiesReader = new PropertiesReader();
-
+            queueEmulator = new QueueEmulator();
         } catch (IOException i) {
-            System.out.println("Exp");
+            System.out.println("Exception");
         }
-        //propertiesReader.getInt("peoplePerHour");
-        //propertiesReader.getString(60);
-        //System.out.println(propertiesReader);
-        String inputFromProperties = "src/com/company/queue/application.properties";
-        System.out.println(propertiesReader.getString("serviceTime"));
-        QueueEmulator queueEmulator = new QueueEmulator();
-        queueEmulator.emulate();
+
+        try {
+            queueEmulator.emulate();
+        } catch (IOException | InterruptedException i) {
+            System.out.println("Exception");
+        }
 
     }
 }
