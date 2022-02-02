@@ -12,13 +12,16 @@ public class Main {
         try {
             queueEmulator = new QueueEmulator();
         } catch (IOException i) {
-            System.out.println("Exception");
+            System.out.println("Ошибка ввода данных !");
         }
 
         try {
             queueEmulator.emulate();
-        } catch (IOException | InterruptedException i) {
-            System.out.println("Exception");
+        } catch (IOException  i) {
+            System.out.println("Ошибка ввода данных !");
+        }
+        catch (InterruptedException i){
+            System.out.println("Ошибка использования Thread !");
         }
 
     }

@@ -5,18 +5,19 @@ import java.util.Arrays;
 
 public class QueueEmulator {
     private int countOfPeople = 0;
-    private final double pOfComing = new PropertiesReader().getDouble("pOfComing");
+    private final double probabilityOfVisiting = new PropertiesReader().getDouble("probabilityOfVisiting");
     private final Terminal[] terminals = new Terminal[new PropertiesReader().getInt("terminal")];
+    private final int timeValue = new PropertiesReader().getInt("deltaTime");
+    private final int serviceTime = new PropertiesReader().getInt("serviceTime");
 
     public QueueEmulator() throws IOException {
     }
 
-
-    private int addPeopleInLine() {
-        if (Math.random() < pOfComing) {
+    private void addPeopleInLine() {
+        if (Math.random() < probabilityOfVisiting) {
             countOfPeople++;
         }
-        return countOfPeople;
+        System.out.println(countOfPeople);
     }
 
     private void takeTerminal() {
@@ -29,23 +30,31 @@ public class QueueEmulator {
             }
         }
     }
+
+    private int getCurrentTime() {
+        return (int)System.currentTimeMillis() / 1000;
+    }
+    private int getTimeWithDelta(int time, int delta) {
+        int percent = (int) (Math.random() * (delta - (-delta))) + (-delta);
+
+        return (int) (time + ((time / 100.0) * percent));
+
+    }
+
     private void freeTerminal() throws IOException {
         for (int i = 0; i < terminals.length; i++) {
-            int timeValue = new PropertiesReader().getInt("deltaTime");
-            int delta = new PropertiesReader().getInt("serviceTime");
             if (terminals[i] != null) {
-                if (System.currentTimeMillis() / 1000 - terminals[i].getTime() > getTimeWithDelta(timeValue, delta)) {
+                if (getCurrentTime() - terminals[i].getTime() > getTimeWithDelta(timeValue, serviceTime)) {
                     terminals[i] = null;
                 }
             }
         }
     }
 
-
     public void emulate() throws InterruptedException, IOException {
         System.out.println(Arrays.toString(terminals));
         while (true) {
-            System.out.println(addPeopleInLine());
+            addPeopleInLine();
             takeTerminal();
             freeTerminal();
             System.out.println(Arrays.toString(terminals));
@@ -54,12 +63,7 @@ public class QueueEmulator {
 
     }
 
-    private int getTimeWithDelta(int time, int delta) {
-        int percent = (int) (Math.random() * (delta - (-delta))) + (-delta);
 
-        return (int) (time + ((time / 100.0) * percent));
-
-    }
 
 
 }
