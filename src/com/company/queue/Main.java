@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class Main {
 
     // предоставить возможность по заданному ключу доставать значения из файла
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         PropertiesReader propertiesReader = null;
         try {
             propertiesReader = new PropertiesReader();
@@ -20,6 +20,8 @@ public class Main {
         //System.out.println(propertiesReader);
         String inputFromProperties = "src/com/company/queue/application.properties";
         System.out.println(propertiesReader.getString("serviceTime"));
+        QueueEmulator queueEmulator = new QueueEmulator();
+        queueEmulator.emulate();
 
     }
 }
