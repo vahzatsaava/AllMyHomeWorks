@@ -5,13 +5,29 @@ import java.util.Arrays;
 
 public class QueueEmulator {
     private int countOfPeople = 0;
-    private  final PropertiesReader propertiesReader = new PropertiesReader();
-    private final double probabilityOfVisiting = propertiesReader.getDouble("probabilityOfVisiting");
-    private final Terminal[] terminals = new Terminal[propertiesReader.getInt("terminal")];
-    private final int timeValue = propertiesReader.getInt("deltaTime");
-    private final int serviceTime = propertiesReader.getInt("serviceTime");
+    private final PropertiesReader propertiesReader;
+    private final double probabilityOfVisiting;
+    private final Terminal[] terminals;
+    private final int timeValue;
+    private final int serviceTime;
 
-    public QueueEmulator() throws IOException {
+    public QueueEmulator() {
+        try {
+            propertiesReader = new PropertiesReader();
+        } catch (IOException e) {
+            throw new PropertiesReadingException(e);
+        }
+        try {
+            probabilityOfVisiting = propertiesReader.getDouble("probabilityOfVisiting");
+            terminals = new Terminal[propertiesReader.getInt("terminal")];
+            timeValue = propertiesReader.getInt("deltaTime");
+            serviceTime = propertiesReader.getInt("serviceTime");
+        } catch (NullPointerException | NumberFormatException n) {
+            //найти как чтобы выбрасывал ключ в сообщении
+            //либо самому прокинуть и засунуть в это исключение
+            throw new PropertyNotFoundException(n.getMessage());
+        }
+        //Логика работы светофора
 
     }
 
@@ -33,8 +49,9 @@ public class QueueEmulator {
     }
 
     private int getCurrentTimeInSeconds() {
-        return (int)System.currentTimeMillis() / 1000;
+        return (int) System.currentTimeMillis() / 1000;
     }
+
     private int getTimeWithDelta(int time, int delta) {
         int percent = (int) (Math.random() * (delta - (-delta))) + (-delta);
 
@@ -51,6 +68,7 @@ public class QueueEmulator {
             }
         }
     }
+
     public void emulate() throws InterruptedException, IOException {
         System.out.println(Arrays.toString(terminals));
         while (true) {
@@ -62,8 +80,6 @@ public class QueueEmulator {
         }
 
     }
-
-
 
 
 }
