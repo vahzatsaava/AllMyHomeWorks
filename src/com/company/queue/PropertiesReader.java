@@ -11,12 +11,14 @@ public class PropertiesReader {
     PropertiesReader() throws IOException {
         fileName = "src/com/company/queue/application.properties";
         addKeys();
+        throw new IOException("Ошибка перехвачена !");
 
     }
 
     PropertiesReader(String fileName) throws IOException {
         this.fileName = fileName;
         addKeys();
+        throw new IOException("Ошибка перехвачена !");
     }
 
 
@@ -41,8 +43,6 @@ public class PropertiesReader {
         }
 
     }
-
-
     public int getInt(String name) {
         return Integer.parseInt(mapFromProperties.get(name));
     }
