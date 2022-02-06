@@ -183,14 +183,24 @@ public class MatrixDZ {
         return newArray;
 
          */
-
-        for (int i = 0; i < position; i++) {
+        int first = array[0];
+            for (int i = 0; i < array.length  ; i++) {
+                if (i == array.length - 1){
+                    array[array.length-1] = first;
+                    break;
+                }
+                array[i] = array[(i+position) % array.length];
+            }
+            /*
+            for (int i = 0; i < position; i++) {
             int lastValue = array[array.length - 1];
+
             for (int j = array.length - 1; j > 0; j--) {
                 array[j] = array[j - 1];
             }
-            array[0] = lastValue;
-        }
+array[0] = lastValue;
+             */
+
         return array;
 
 
@@ -198,18 +208,24 @@ public class MatrixDZ {
 
 
     public static void main(String[] args) {
-        int[][] matrixI = {{1, -402, 3}, {0, -60, -120}, {-1, -505, -900}};
-        int[][] matrixJ = {{1, 2, 3}, {4, 7, 9}, {-1, -10, 5}};
-        int[][] matrixY = {
-                {5, 2, 3},
-                {4, 5, 8},
-                {1, 8, 10}};
+        // int[][] matrixI = {{1, -402, 3}, {0, -60, -120}, {-1, -505, -900}};
+        //int[][] matrixJ = {{1, 2, 3}, {4, 7, 9}, {-1, -10, 5}};
+//        int[][] matrixY = {
+//                {5, 2, 3},
+//                {4, 5, 8},
+//                {1, 8, 10}};
         int[] arr = {1, 2, 3, 4, 5, 6};
+        swapsElementsInArray(arr, 1);
+        for (int i : swapsElementsInArray(arr, 4)
+        ) {
+            System.out.println(i);
+
+        }
         //findIncrease(matrixJ);
         //findIncreaseI(matrixI);
         //moveInPosition(matrixI);
-        findIncreaseI(matrixY);
-        moveInPosition(matrixJ);
+        //    findIncreaseI(matrixY);
+        //  moveInPosition(matrixJ);
 
     }
 }
