@@ -1,7 +1,8 @@
 package com.company.traffic_lights;
 
 public class TrafficLightsForCars {
-    public TrafficLightsForCars(){
+
+    public void start(){
         while (true) {
             try {
                 shineRed();
@@ -16,28 +17,24 @@ public class TrafficLightsForCars {
         }
     }
 
-    private LightsStatus shineGreen() throws InterruptedException {
+    private void shineGreen() throws InterruptedException {
         System.out.println(LightsStatus.GREEN);
         Thread.sleep(4500);
-        return LightsStatus.GREEN;
     }
 
-    private LightsStatus shineRed() throws InterruptedException {
+    private void shineRed() throws InterruptedException {
         System.out.println(LightsStatus.RED);
         Thread.sleep(3800);
-        return LightsStatus.RED;
     }
 
-    private LightsStatus shineYellow() throws InterruptedException {
+    private void shineYellow() throws InterruptedException {
         System.out.println(LightsStatus.YELLOW);
         Thread.sleep(2000);
-        return LightsStatus.YELLOW;
     }
-    private LightsStatus shineGreenArrowAndRed() throws InterruptedException {
+    private void shineGreenArrowAndRed() throws InterruptedException {
         String res = String.format("%s  %s =>",LightsStatus.RED,LightsStatus.ARROW);
         System.out.println(res);
         Thread.sleep(1000);
-        return LightsStatus.ARROW;
     }
 
 }
