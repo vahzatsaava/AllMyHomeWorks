@@ -201,6 +201,7 @@ public class MatrixDZ {
 array[0] = lastValue;
              */
 
+
         return array;
 
 
