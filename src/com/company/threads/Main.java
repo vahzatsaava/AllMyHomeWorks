@@ -1,13 +1,18 @@
 package com.company.threads;
 
 public class Main {
-    public static void main(String[] args) {
-        Thread thread1 = new MyThread("1");
-        Thread thread2 = new MyThread("2");
+    public static void main(String[] args) throws InterruptedException {
+        Boolean b = true;
+        boolean flag = false;
 
-        Thread runThread = new Thread(new Runnab());
+        for (int i = 0; i < 100000; i++){
+            new MyThread(b).start();
+        }
 
-        thread1.start();
-        thread2.start();
+
+
+        synchronized (b){
+
+        }
     }
 }

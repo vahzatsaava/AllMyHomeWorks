@@ -1,24 +1,21 @@
 package com.company.threads;
 
 public class MyThread extends Thread{
-    public MyThread(String name){
-        setName(name);
+    Boolean aBoolean;
+
+    public MyThread(Boolean bool){
+        aBoolean = bool;
     }
 
     @Override
     public void run() {
-        for (int i = 0; i <5 ; i++) {
-            System.out.println(getName());
-            try {
-                if (getName().equals("1")){
-                    sleep(1000);
+            synchronized (aBoolean){
+                if (aBoolean){
+                    System.out.println("Выполняем работу инструментом");
                 }
-                else{
-                    sleep(500);
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+
+                System.out.println("Закончил работу");
             }
-        }
+
     }
 }
