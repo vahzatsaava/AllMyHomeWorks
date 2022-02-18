@@ -15,7 +15,7 @@ public class MaxElementInArray extends Thread {
 
     @Override
     public void run() {
-        int max = array[0];
+        int max = array[leftBoard];
         for (int i = leftBoard; i <= rightBoard; i++) {
             if (array[i] > max) {
                 max = array[i];
