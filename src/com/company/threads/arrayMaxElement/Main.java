@@ -7,7 +7,11 @@ public class Main {
         array[100] = 7;
         array[4000] = 55;
         FindMax findMax = new FindMax(array,5);
-        findMax.getMax();
+        System.out.println(findMax.getMax());
+        //озознать все ,пересмотреть
+        //задать какие-то маленьькие значения
+        // сравнить длину выполнения программы
+        //сравнить время выполнения потов
     }
 
 }

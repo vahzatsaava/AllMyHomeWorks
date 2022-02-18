@@ -39,12 +39,15 @@ public class FindMax {
         for (MaxElementInArray max : maxElement) {
             max.join();
         }
-        for (MaxElementInArray max : maxElement) {
-            System.out.println(max.getMaxResult());
+        int max = Integer.MIN_VALUE;
+        for (MaxElementInArray thread : maxElement) {
+            if (thread.getMaxResult() > max){
+                max = thread.getMaxResult();
+            }
         }
 
 
-        return 0;
+        return max;
     }
 
 }
