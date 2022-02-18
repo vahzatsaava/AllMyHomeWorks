@@ -15,17 +15,20 @@ public class FindMax {
     }
 
     public List<Pair> createPairs() {
-
         int range = (int) Math.ceil(array.length * 1.0 / threads);
         for (int i = 0; i < array.length - array.length % range; i += range) {
             list.add(new Pair(i, i + range - 1));
         }
 
+        System.out.println(list);
+
         return list;
     }
-    public int getMax(){
-        createPairs();
 
+    public int getMax() {
+        createPairs();
+        MaxElementInArray maxElementInArray = new MaxElementInArray(array,4,2);
+        return 0;
     }
 
 }
