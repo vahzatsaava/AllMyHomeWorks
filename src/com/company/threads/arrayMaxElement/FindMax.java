@@ -15,6 +15,7 @@ public class FindMax {
         this.array = array;
     }
 
+
     private List<Pair> createPairs() {
         int range = (int) Math.ceil(array.length * 1.0 / threads);
         for (int i = 0; i < array.length - array.length % range; i += range) {
@@ -31,17 +32,17 @@ public class FindMax {
         List<MaxElementInArray> maxElement = new ArrayList<>();
         List<Pair> borders = createPairs();
         for (Pair pair : borders) {
-            maxElement.add(new MaxElementInArray(array,pair.getFirstNumber(), pair.getSecondNumber()));
+            maxElement.add(new MaxElementInArray(array, pair.getFirstNumber(), pair.getSecondNumber()));
         }
-        for (MaxElementInArray max : maxElement) {
-            max.start();
+        for (MaxElementInArray thread : maxElement) {
+            thread.start();
         }
-        for (MaxElementInArray max : maxElement) {
-            max.join();
+        for (MaxElementInArray thread : maxElement) {
+            thread.join();
         }
         int max = Integer.MIN_VALUE;
         for (MaxElementInArray thread : maxElement) {
-            if (thread.getMaxResult() > max){
+            if (thread.getMaxResult() > max) {
                 max = thread.getMaxResult();
             }
         }
@@ -49,5 +50,6 @@ public class FindMax {
 
         return max;
     }
+
 
 }
