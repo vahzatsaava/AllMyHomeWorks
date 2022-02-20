@@ -21,35 +21,22 @@ public class LeadTimeOfMethods {
     }
 
     private String findMaxForThreeThread() {
-        FindMax findMax = new FindMax(array, 8);
-        long start = System.currentTimeMillis();
-        try {
-            findMax.getMax();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        ;
-        long finish = System.currentTimeMillis();
-        long res = finish - start;
-        return String.valueOf(res);
+        FindMax findMax = new FindMax(array, 3);
+        return getString(findMax);
 
     }
 
     private String findMaxForFiveThread() {
         FindMax findMax = new FindMax(array, 5);
-        long start = System.currentTimeMillis();
-        try {
-            findMax.getMax();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        long finish = System.currentTimeMillis();
-        long res = finish - start;
-        return String.valueOf(res);
+        return getString(findMax);
     }
 
     private String findMaxForTenThread() {
         FindMax findMax = new FindMax(array, 10);
+        return getString(findMax);
+    }
+
+    private String getString(FindMax findMax) {
         long start = System.currentTimeMillis();
         try {
             findMax.getMax();
@@ -65,8 +52,8 @@ public class LeadTimeOfMethods {
     public String toString() {
         return "Колличеество потоков " + "\t" + "Время выполнения" + "\n" +
                 "Один  " + "\t" + "\t" + "\t" + "\t" + "-" + "\t" + findMaxForOneThread() + "\n" +
-                "Три " + "\t" + "\t" + "\t" +"\t" + "-" + "\t" + findMaxForThreeThread() + "\n" +
+                "Три " + "\t" + "\t" + "\t" + "\t" + "-" + "\t" + findMaxForThreeThread() + "\n" +
                 "Пять " + "\t" + "\t" + "\t" + "\t" + "-" + "\t" + findMaxForFiveThread() + "\n" +
-                "Десять " + "\t" + "\t" + "\t" +  "\t" + "-" + "\t" + findMaxForTenThread() + "\n";
+                "Десять " + "\t" + "\t" + "\t" + "\t" + "-" + "\t" + findMaxForTenThread() + "\n";
     }
 }
