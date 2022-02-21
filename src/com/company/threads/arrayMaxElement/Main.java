@@ -1,11 +1,9 @@
 package com.company.threads.arrayMaxElement;
 
-import java.util.Random;
-
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-        int[] array = new int[89800001];
+        int[] array = new int[189800001];
         /*
         array[0] = 5;
         array[100] = 7;
@@ -21,7 +19,7 @@ public class Main {
 
         FindMax findMax = new FindMax(array,5);
         System.out.println(findMax.getMax());
-        LeadTimeOfMethods leadTimeOfMethods = new LeadTimeOfMethods(array);
+        TimerForMethods leadTimeOfMethods = new TimerForMethods(array);
         System.out.println(leadTimeOfMethods);
 
         //озознать все ,пересмотреть

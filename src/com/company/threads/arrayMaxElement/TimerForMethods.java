@@ -1,14 +1,14 @@
 package com.company.threads.arrayMaxElement;
 
-public class LeadTimeOfMethods {
-    private int max;
+public class TimerForMethods {
     private final int[] array;
 
-    LeadTimeOfMethods(int[] array) {
+    TimerForMethods(int[] array) {
         this.array = array;
     }
 
-    private String findMaxForOneThread() {
+    private String getCountTimeForOneThread() {
+        int max = array[0];
         long start = System.currentTimeMillis();
         for (int i : array) {
             if (i > max) {
@@ -20,28 +20,31 @@ public class LeadTimeOfMethods {
         return String.valueOf(res);
     }
 
-    private String findMaxForThreeThread() {
+    private String getCountTimeForThreeThread() {
         FindMax findMax = new FindMax(array, 3);
-        return getString(findMax);
+        return countTime(findMax);
 
     }
 
-    private String findMaxForFiveThread() {
+    private String getCountTimeForFiveThread() {
         FindMax findMax = new FindMax(array, 5);
-        return getString(findMax);
+        return countTime(findMax);
     }
 
-    private String findMaxForTenThread() {
+    private String getCountTimeForTenThread() {
         FindMax findMax = new FindMax(array, 10);
-        return getString(findMax);
+        return countTime(findMax);
     }
 
-    private String getString(FindMax findMax) {
+    private String countTime(FindMax findMax) {
         long start = System.currentTimeMillis();
         try {
             findMax.getMax();
         } catch (InterruptedException e) {
             e.printStackTrace();
+            long finishExp = System.currentTimeMillis();
+            long result = finishExp - start;
+            return String.valueOf(result);
         }
         long finish = System.currentTimeMillis();
         long res = finish - start;
@@ -51,9 +54,9 @@ public class LeadTimeOfMethods {
     @Override
     public String toString() {
         return "Колличеество потоков " + "\t" + "Время выполнения" + "\n" +
-                "Один  " + "\t" + "\t" + "\t" + "\t" + "-" + "\t" + findMaxForOneThread() + "\n" +
-                "Три " + "\t" + "\t" + "\t" + "\t" + "-" + "\t" + findMaxForThreeThread() + "\n" +
-                "Пять " + "\t" + "\t" + "\t" + "\t" + "-" + "\t" + findMaxForFiveThread() + "\n" +
-                "Десять " + "\t" + "\t" + "\t" + "\t" + "-" + "\t" + findMaxForTenThread() + "\n";
+                "Один  " + "\t\t\t\t\t" + getCountTimeForOneThread() + "\n" +
+                "Три " + "\t\t\t\t\t" + getCountTimeForThreeThread() + "\n" +
+                "Пять " + "\t\t\t\t\t" + getCountTimeForFiveThread() + "\n" +
+                "Десять " + "\t\t\t\t\t" + getCountTimeForTenThread() + "\n";
     }
 }
