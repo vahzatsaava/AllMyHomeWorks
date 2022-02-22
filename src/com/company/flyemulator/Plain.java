@@ -1,12 +1,18 @@
 package com.company.flyemulator;
 
-public class Plain extends Thread{
+public class Plain extends Thread {
     //процесс это в целом приложение
     //в рамках одного процесса будут потоки
-    Boolean flug = false;
+    Boolean aBoolean;
+
+    Plain(Boolean bool) {
+        this.aBoolean = bool;
+    }
+
+    //когда есть один ресурс которые хотят получить нескольок пототоков
     @Override
     public void run() {
-        synchronized (flug) {
+        synchronized (aBoolean) {
             System.out.println("Самолет садится !" + " " + getId());
             try {
                 Thread.sleep(1500);
