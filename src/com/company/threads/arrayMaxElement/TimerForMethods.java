@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 public class TimerForMethods {
     private final int[] array;
 
-    TimerForMethods(int[] array) {
+    public TimerForMethods(int[] array) {
         this.array = array;
     }
 
