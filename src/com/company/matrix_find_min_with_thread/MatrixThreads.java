@@ -29,24 +29,19 @@ public class MatrixThreads {
     public int getMin() throws InterruptedException {
         List<MatrixGetMinResult> minElement = new ArrayList<>();
         List<PairBorders> borders = createPairs();
-        for (PairBorders pair : borders
-        ) {
+        for (PairBorders pair : borders) {
             minElement.add(new MatrixGetMinResult(matrix, pair.getLeftBorder(), pair.getRightBorder()));
-
         }
-        for (MatrixGetMinResult thread : minElement
-        ) {
+        for (MatrixGetMinResult thread : minElement) {
             thread.start();
 
         }
-        for (MatrixGetMinResult thread : minElement
-        ) {
+        for (MatrixGetMinResult thread : minElement) {
             thread.join();
 
         }
         int min = Integer.MAX_VALUE;
-        for (MatrixGetMinResult thread : minElement
-        ) {
+        for (MatrixGetMinResult thread : minElement) {
             if (thread.getMinResult() < min) {
                 min = thread.getMinResult();
             }
